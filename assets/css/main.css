@@ -4234,27 +4234,13 @@ body.is-preload #banner i {
 /* Footer */
 
 #footer {
-	background-color: #ffd5d5;
+	background-color: #3c4b82;
 	background-size: auto,
 		cover;
 	background-position: center,
 		center;
 	margin-top: -6.5em;
 	padding-top: 6.5em;
-	color: #2c375f !important;
-}
-
-#footer a,
-#footer h2,
-#footer label,
-#footer input {
-	color: #2c375f !important;
-}
-
-#footer input,
-#footer textarea {
-	background: rgba(44, 55, 95, 0.025) !important;
-	border: solid 2px rgba(44, 55, 95, 0.125) !important;
 }
 
 #footer .inner {
@@ -4289,7 +4275,7 @@ body.is-preload #banner i {
 }
 
 #footer .inner .copyright {
-	border-top: solid 2px rgba(44, 55, 95, 0.125);
+	border-top: solid 2px rgba(255, 255, 255, 0.125);
 	list-style: none;
 	margin: 4em 0 2em 0;
 	padding: 2em 0 0 0;
@@ -4297,8 +4283,8 @@ body.is-preload #banner i {
 }
 
 #footer .inner .copyright li {
-	border-left: solid 2px rgba(44, 55, 95, 0.125);
-	color: rgba(44, 55, 95, 1);
+	border-left: solid 2px rgba(255,255,255, 0.125);
+	color: rgba(255,255,255, 0.35);
 	display: inline-block;
 	font-size: 0.9em;
 	line-height: 1;
@@ -4320,7 +4306,7 @@ body.is-preload #banner i {
 @media screen and (max-width: 1280px) {
 
 	#footer {
-		background-color: #ffd5d5;
+		background-color: #3c4b82;
 		/* background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/bg.jpg");
 		 */
 		background-size: auto,
