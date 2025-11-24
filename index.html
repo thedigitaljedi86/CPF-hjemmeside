@@ -36,7 +36,14 @@
 				<h2>Menu</h2>
 				<ul class="links">
 					<li><a href="index.html">Home</a></li>
-					<li><a href="generic.html">Generic</a></li>
+					<li class="has-submenu">
+						<a href="#" class="submenu-toggle" aria-expanded="false">Generic</a>
+						<ul class="submenu">
+							<li><a href="generic.html">overview</a></li>
+							<li><a href="generic-1.html">item 1</a></li>
+							<li><a href="generic-2.html">item 2</a></li>
+						</ul>
+					</li>
 					<li><a href="elements.html">Elements</a></li>
 					<li><a href="#">Log In</a></li>
 					<li><a href="#">Sign Up</a></li>
@@ -125,6 +132,24 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			var toggles = document.querySelectorAll('#menu .submenu-toggle');
+
+			toggles.forEach(function (toggle) {
+				toggle.addEventListener('click', function (e) {
+					e.preventDefault();
+
+					var li = toggle.closest('.has-submenu');
+					var isOpen = li.classList.toggle('open');
+
+					// Tilgængelighed
+					toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+				});
+			});
+		});
+	</script>
+
 
 </body>
 
