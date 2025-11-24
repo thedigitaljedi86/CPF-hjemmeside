@@ -107,7 +107,7 @@
 				.on('click', function(event) {
 					event.stopPropagation();
 				})
-				.on('click', 'a', function(event) {
+				.on('click', 'a:not(.submenu-toggle)', function(event) {
 
 					var href = $(this).attr('href');
 
