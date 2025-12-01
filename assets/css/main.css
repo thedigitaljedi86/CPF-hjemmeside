@@ -3287,6 +3287,17 @@ body.is-preload #banner p {
 }
 
 /* Footer */
+
+#footer {
+	background-color: #3c4b82;
+	background-size: auto,
+		cover;
+	background-position: center,
+		center;
+	margin-top: -6.5em;
+	padding-top: 6.5em;
+}
+
 #footer .inner {
   padding: 5em 0 3em 0;
   display: -moz-flex;
@@ -3315,11 +3326,11 @@ body.is-preload #banner p {
   width: calc(50% - 1.5em);
 }
 #footer .inner .copyright {
-  border-top: solid 2px rgba(255, 255, 255, 0.125);
-  list-style: none;
-  margin: 4em 0 2em 0;
-  padding: 2em 0 0 0;
-  width: 100%;
+	border-top: solid 2px rgba(255, 255, 255, 0.125);
+	list-style: none;
+	margin: 4em 0 2em 0;
+	padding: 2em 0 0 0;
+	width: 100%;
 }
 #footer .inner .copyright li {
   border-left: solid 2px rgba(255, 255, 255, 0.125);
