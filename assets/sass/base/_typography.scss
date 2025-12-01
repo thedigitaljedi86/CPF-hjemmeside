@@ -34,6 +34,28 @@
 		}
 	}
 
+	.style1 h2, .style2 h2, .style1 p, .style2 p, .style1 a, .style2 a {
+		color: _palette(fg-dark) !important;
+	}
+	
+    .style1 a, .style2 a { 
+		&:hover {
+			color: _palette(fg-dark) !important;
+		}
+
+		&.special:not(.button) {
+			&:before {
+			border: solid 2px rgba(60,75,130) !important;
+			}
+
+			&:hover{
+				&:before {
+					background-color: rgba(60,75,130,0.25) !important;
+				}
+			}
+		}
+	}
+
 	a {
 		@include vendor('transition', 'color #{_duration(transition)} ease-in-out, border-bottom-color #{_duration(transition)} ease-in-out');
 		border-bottom: dotted 1px _palette(fg-light);
