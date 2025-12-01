@@ -23,6 +23,10 @@
 			opacity: 1;
 			margin: 0 0 (_size(element-margin) * 0.65) 0;
 
+			img {
+				width: 15rem !important;
+			}
+
 			.icon {
 				border-radius: 100%;
 				border: solid 2px _palette(border);

@@ -2820,6 +2820,9 @@ body.is-menu-visible #menu .inner {
   opacity: 1;
   margin: 0 0 1.3em 0;
 }
+#banner .logo img {
+  width: 15rem !important;
+}
 #banner .logo .icon {
   border-radius: 100%;
   border: solid 2px rgba(255, 255, 255, 0.125);
