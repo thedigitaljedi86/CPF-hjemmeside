@@ -52,10 +52,8 @@
 			> header {
 				@include padding(5em, 0, (4em, 0, _size(wrapper-edges, large) * 0.5, 0));
 
-				background-color:		_palette(bg);
-
-				background-image:		linear-gradient(to top, transparentize(_palette(bg), 0.2), transparentize(_palette(bg), 0.2)),
-										url('../../images/bg.jpg');
+				background-color:		#ffd5d5;
+				color: _palette(fg-dark) !important;
 
 				background-size:		auto,
 										cover;
@@ -64,6 +62,11 @@
 										0% 30%;
 
 		 		margin-bottom: (_size(wrapper-edges, large) * -1);
+
+				h2 {
+					color: _palette(fg-dark) !important;
+					border-bottom: solid 2px rgba(44, 55, 95, 0.125);
+				}
 			}
 		}
 
