@@ -2950,7 +2950,12 @@ body.is-preload #banner p {
 
 /* Wrapper */
 #wrapper > header {
-  padding: 11em 0 2.25em 0;
+  padding: 11em 0 12em 0;
+  background-size: auto, cover;
+  background-color: #2c375f;
+  background-position: center, 0% 30%;
+  margin-bottom: -6.5em;
+  background-image: linear-gradient(to top, rgba(44, 55, 95, 0.8), rgba(44, 55, 95, 0.8)), url("../../images/video_poster.jpg");
 }
 #wrapper > header .inner {
   margin: 0 auto;
@@ -2969,20 +2974,6 @@ body.is-preload #banner p {
   letter-spacing: 0.1em;
   line-height: 2;
   text-transform: uppercase;
-}
-@media screen and (max-width: 1280px) {
-  #wrapper > header {
-    padding: 9em 0 6.25em 0;
-    background-color: #ffd5d5;
-    color: #2c375f !important;
-    background-size: auto, cover;
-    background-position: center, 0% 30%;
-    margin-bottom: -6.5em;
-  }
-  #wrapper > header h2 {
-    color: #2c375f !important;
-    border-bottom: solid 2px rgba(44, 55, 95, 0.125);
-  }
 }
 @media screen and (max-width: 980px) {
   #wrapper > header {
