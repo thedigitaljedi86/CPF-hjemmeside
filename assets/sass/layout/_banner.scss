@@ -15,12 +15,18 @@
 		}
 
 		#bg_video {
-			position: absolute;
-			opacity: 0.20;
 			min-width: 100%;
 			min-height: 100%;
+		}
+
+		.video-wrapper {
+			position: absolute;
+			opacity: 0.20;
+			width: 100%;
+			height: 90vh;
 			top: 0;
 			left: 0;
+			overflow: hidden;
 		}
 
 		.logo {
@@ -30,10 +36,10 @@
 			));
 			@include vendor('transform', 'translateY(0)');
 			opacity: 1;
-			margin: 0 0 (_size(element-margin) * 0.65) 0;
+			margin: 0 0 0.8em 0;
 
 			img {
-				width: 80% !important;
+				width: 50% !important;
 			}
 
 			.icon {
