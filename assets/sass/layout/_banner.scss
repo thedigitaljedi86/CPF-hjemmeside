@@ -14,6 +14,15 @@
 			width: _size(inner);
 		}
 
+		#bg_video {
+			position: absolute;
+			opacity: 0.20;
+			min-width: 100%;
+			min-height: 100%;
+			top: 0;
+			left: 0;
+		}
+
 		.logo {
 			@include vendor('transition', (
 				'opacity 2s ease',
@@ -24,7 +33,7 @@
 			margin: 0 0 (_size(element-margin) * 0.65) 0;
 
 			img {
-				width: 15rem !important;
+				width: 80% !important;
 			}
 
 			.icon {
@@ -72,6 +81,8 @@
 			letter-spacing: _font(kern-heading);
 			line-height: 2;
 			text-transform: uppercase;
+			border-top: solid 2px rgba(255, 255, 255, 0.125);
+			padding-top: 0.8em;
 		}
 
 		@include breakpoint('<=large') {
