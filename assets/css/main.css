@@ -2819,7 +2819,7 @@ body.is-menu-visible #menu .inner {
   margin: 0 0 0.8em 0;
 }
 #banner .logo img {
-  width: 50% !important;
+  width: 45% !important;
 }
 #banner .logo .icon {
   border-radius: 100%;
@@ -3293,7 +3293,7 @@ body.is-preload #banner p {
   width: calc(50% - 1.5em);
 }
 #footer .inner img {
-  width: 15em;
+  width: 12em;
 }
 #footer .inner .contact {
   width: calc(50% - 1.5em);
