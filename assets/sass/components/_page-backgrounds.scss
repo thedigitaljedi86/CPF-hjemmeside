@@ -1,0 +1,55 @@
+// Page backgrounds partial
+// Place page-specific background classes here so each page can set its own background
+// Usage: add a page class to the <body> like `<body class="page-home">` and define the class below.
+
+// Defaults (override in this file per page)
+$page-bg-default: #ffffff;
+$page-bg-image-path: '/images';
+
+// Mixin to set a background with optional overlay
+@mixin page-background($image: null, $color: null, $overlay: null, $position: center, $size: cover, $repeat: no-repeat, $attachment: fixed) {
+  background-color: if($color, $color, $page-bg-default);
+
+  @if $image {
+    // If an overlay color is provided we put a linear-gradient before the image so it's easy to dim/colourize
+    @if $overlay {
+      background-image: linear-gradient(#{$overlay}, #{$overlay}), url(#{$image});
+    } @else {
+      background-image: url(#{$image});
+    }
+
+    background-position: $position;
+    background-size: $size;
+    background-repeat: $repeat;
+    background-attachment: $attachment;
+  }
+}
+
+// Convenience classes: body.page-<name> { ... }
+// Edit the image paths or colors as needed for each subpage.
+
+body.page-home {
+  @include page-background("#{$page-bg-image-path}/home.jpg", #f7f7f9, rgba(0,0,0,0.08));
+}
+
+body.page-generic {
+  @include page-background("#{$page-bg-image-path}/generic.jpg", #ffffff, rgba(0,0,0,0.06));
+}
+
+body.page-elements {
+  @include page-background("#{$page-bg-image-path}/elements.jpg", #fbfbfb, rgba(0,0,0,0.04));
+}
+
+// Light/dark modifiers you can add alongside page classes
+body.page-bg--dark {
+  color: #fff;
+}
+
+body.page-bg--light {
+  color: #111;
+}
+
+// Example utility to override background on sections if needed
+.page-section--transparent {
+  background: transparent !important;
+}
