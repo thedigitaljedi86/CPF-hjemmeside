@@ -34,8 +34,12 @@
 		}
 	}
 
-	.style1 h2, .style2 h2, .style1 p, .style2 p, .style1 a, .style2 a {
+	.style1 h2, .style2 h2, .style1 h3, .style2 h3, .style1 p, .style2 p, .style1 a, .style2 a {
 		color: _palette(fg-dark) !important;
+
+		&.major {
+					border-bottom: solid 2px _palette(border-bg);
+				}
 	}
 	
     .style1 a, .style2 a { 
@@ -103,6 +107,29 @@
 			&:active {
 				&:before {
 					background-color: _palette(border2-bg);
+				}
+			}
+		}
+
+		&.linked-in {
+			&:before {
+					@include vendor('transition', 'background-color #{_duration(transition)} ease-in-out');
+					border: solid 2px _palette(bg);
+					border-radius: 100%;
+					display: inline-block;
+					font-size: 1.25em;
+					height: 2em;
+					line-height: 1.8em;
+					text-align: center;
+					vertical-align: middle;
+					width: 2em;
+			}
+			&:hover {
+					cursor: pointer;
+					color: _palette(accent) !important;
+
+				&:before {
+					border: solid 2px _palette(accent) !important;
 				}
 			}
 		}
