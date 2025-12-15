@@ -33,13 +33,13 @@
 							<li class="has-submenu">
 								<a href="#" class="submenu-toggle" aria-expanded="false">About Us</a>
 								<ul class="submenu">
-									<li><a href="#">What is CBS Personal Finance?</a></li>
-									<li><a href="#">The Team</a></li>
+									<li><a href="what.html">What is CBS Personal Finance?</a></li>
+									<li><a href="team.html">The Team</a></li>
 								</ul>
 							</li>
-							<li><a href="/partners.html">Our Partners</a></li>
-							<li><a href="generic.html">Events</a></li>
-							<li><a href="#">Join The Team</a></li>
+							<li><a href="partners.html">Our Partners</a></li>
+							<li><a href="events.html">Events</a></li>
+							<li><a href="join.html">Join The Team</a></li>
 						</ul>
 						<a href="#" class="close">Close</a>
 					</div>
@@ -120,6 +120,22 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				var toggles = document.querySelectorAll('#menu .submenu-toggle');
 
+				toggles.forEach(function (toggle) {
+					toggle.addEventListener('click', function (e) {
+						e.preventDefault();
+
+						var li = toggle.closest('.has-submenu');
+						var isOpen = li.classList.toggle('open');
+
+						// Tilgængelighed
+						toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+					});
+				});
+			});
+		</script>
 	</body>
 </html>
