@@ -3249,11 +3249,22 @@ body.is-preload #banner p {
 }
 .wrapper.spotlight .partners div {
   background-color: white;
-  padding: 2rem;
+  padding: 1em;
   border-radius: 30px;
   display: flex;
   align-items: center;
   height: 10em;
+  width: 40%;
+  justify-content: center;
+}
+.wrapper.spotlight .partners div img {
+  max-width: 100%;
+  max-height: 100%;
+}
+@media screen and (max-width: 980px) {
+  .wrapper.spotlight .partners div {
+    width: 80%;
+  }
 }
 .wrapper.spotlight .content {
   width: 100%;
