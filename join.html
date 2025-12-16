@@ -60,7 +60,7 @@
 									<h3 class="major">Become a part of our team</h3>
 									<p>If any of the teams or the work they do resonates with you, we’d love to hear from you. Please send us your resume along with a short introduction about who you are and why you’d like to join.</p>
 									<section>		
-										<form method="post" action="#">
+										<form method="post" action="#" id="emailForm">
 											<div class="row gtr-uniform">
 												<div class="col-6 col-12-xsmall">
 													<label for="name">Full name</label>
@@ -235,6 +235,17 @@
 			});
 		});
 	</script>
+	<script>
+        window.parent.postMessage({ footerHeight: document.body.scrollHeight }, '*');
+    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
+    <script type="text/javascript">      (function () {
+            emailjs.init("tmW-Wh2vTT2lJQ-a_sd15");
+        })();
+    </script>
+    <script>
+        emailjs.sendForm("<REPLACE>", "template_r51m0vt", "#emailForm")
+    </script>
 	</body>
 </html>
