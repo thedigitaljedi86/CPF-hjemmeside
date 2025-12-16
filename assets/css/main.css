@@ -3051,7 +3051,7 @@ body.is-preload #banner p {
   text-transform: uppercase;
 }
 #wrapper .team-header {
-  background-image: linear-gradient(to top, rgba(44, 55, 95, 0.8), rgba(44, 55, 95, 0.8)), url("../../images/dsc_0163-1.jpg");
+  background-image: linear-gradient(to top, rgba(44, 55, 95, 0.8), rgba(44, 55, 95, 0.8)), url("../../images/about/aboutus_header.jpg");
 }
 @media screen and (max-width: 980px) {
   #wrapper > header {
