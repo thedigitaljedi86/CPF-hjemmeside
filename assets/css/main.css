@@ -3053,6 +3053,18 @@ body.is-preload #banner p {
 #wrapper .team-header {
   background-image: linear-gradient(to top, rgba(44, 55, 95, 0.8), rgba(44, 55, 95, 0.8)), url("../../images/about/aboutus_header.jpg");
 }
+#wrapper .join-header {
+  background-image: linear-gradient(to top, rgba(44, 55, 95, 0.8), rgba(44, 55, 95, 0.8)), url("../../images/join_header.jpg");
+}
+#wrapper .partners-header {
+  background-image: linear-gradient(to top, rgba(44, 55, 95, 0.8), rgba(44, 55, 95, 0.8)), url("../../images/all/Sofie_DSC_0038.JPG");
+}
+#wrapper .events-header {
+  background-image: linear-gradient(to top, rgba(44, 55, 95, 0.8), rgba(44, 55, 95, 0.8)), url("../../images/all/Sofie_DSC_0092.JPG");
+}
+#wrapper .what-header {
+  background-image: linear-gradient(to top, rgba(44, 55, 95, 0.8), rgba(44, 55, 95, 0.8)), url("../../images/all/Sofie_TOG06237 (3).jpg");
+}
 @media screen and (max-width: 980px) {
   #wrapper > header {
     padding: 11em 3em 7.375em 3em;
@@ -3226,6 +3238,22 @@ body.is-preload #banner p {
 .wrapper.spotlight .image img {
   border-radius: 100%;
   width: 100%;
+}
+.wrapper.spotlight .partners {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 2rem;
+  margin: 3rem;
+}
+.wrapper.spotlight .partners div {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  height: 10em;
 }
 .wrapper.spotlight .content {
   width: 100%;
