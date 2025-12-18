@@ -39,8 +39,25 @@
 
 		&.major {
 					border-bottom: solid 2px _palette(border-bg);
+					display: flex;
+					gap: 1em;
+    				justify-content: flex-start;
+    				align-items: center;
+
 				}
 	}
+
+	.style3 h2, .style3 h3, .style3 p, .style3 a {
+
+	&.major {
+				display: flex;
+				gap: 1em;
+				justify-content: flex-start;
+				align-items: center;
+
+			}
+	}
+
 
 	.style1 .linked-in, .style2 .linked-in {
 

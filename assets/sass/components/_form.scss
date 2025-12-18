@@ -8,6 +8,7 @@
 
 	form {
 		margin: 0 0 _size(element-margin) 0;
+		color: _palette(bg);
 
 		> :last-child {
 			margin-bottom: 0;
@@ -69,7 +70,7 @@
 	}
 
 	label {
-		color: _palette(fg-bold);
+		color: _palette(bg);
 		display: block;
 		font-family: _font(family-heading);
 		font-size: 0.8em;
@@ -216,21 +217,21 @@
 	}
 
 	::-webkit-input-placeholder {
-		color: _palette(fg-light) !important;
+		color: _palette(accent) !important;
 		opacity: 1.0;
 	}
 
 	:-moz-placeholder {
-		color: _palette(fg-light) !important;
+		color: _palette(accent) !important;
 		opacity: 1.0;
 	}
 
 	::-moz-placeholder {
-		color: _palette(fg-light) !important;
+		color: _palette(accent) !important;
 		opacity: 1.0;
 	}
 
 	:-ms-input-placeholder {
-		color: _palette(fg-light) !important;
+		color: _palette(accent) !important;
 		opacity: 1.0;
 	}

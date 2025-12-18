@@ -149,6 +149,17 @@ body, input, select, textarea {
 }
 .style1 h2.major, .style2 h2.major, .style1 h3.major, .style2 h3.major, .style1 p.major, .style2 p.major, .style1 a.major, .style2 a.major {
   border-bottom: solid 2px rgba(60, 75, 130, 0.125);
+  display: flex;
+  gap: 1em;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.style3 h2.major, .style3 h3.major, .style3 p.major, .style3 a.major {
+  display: flex;
+  gap: 1em;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .style1 .linked-in:before, .style2 .linked-in:before {
@@ -1683,6 +1694,7 @@ section.special, article.special {
 /* Form */
 form {
   margin: 0 0 2em 0;
+  color: #2c375f;
 }
 form > :last-child {
   margin-bottom: 0;
@@ -1741,7 +1753,7 @@ form > .fields > .field.quarter {
 }
 
 label {
-  color: #ffffff;
+  color: #2c375f;
   display: block;
   font-family: Raleway, Helvetica, sans-serif;
   font-size: 0.8em;
@@ -1898,22 +1910,22 @@ input[type=radio] + label:before {
 }
 
 ::-webkit-input-placeholder {
-  color: #d1e1ff !important;
+  color: rgb(60, 75, 130) !important;
   opacity: 1;
 }
 
 :-moz-placeholder {
-  color: #d1e1ff !important;
+  color: rgb(60, 75, 130) !important;
   opacity: 1;
 }
 
 ::-moz-placeholder {
-  color: #d1e1ff !important;
+  color: rgb(60, 75, 130) !important;
   opacity: 1;
 }
 
 :-ms-input-placeholder {
-  color: #d1e1ff !important;
+  color: rgb(60, 75, 130) !important;
   opacity: 1;
 }
 
@@ -2363,6 +2375,14 @@ button,
   text-transform: uppercase;
   white-space: nowrap;
 }
+input[type=submit].reset,
+input[type=reset].reset,
+input[type=button].reset,
+button.reset,
+.button.reset {
+  color: #2c375f !important;
+  box-shadow: inset 0 0 0 2px rgba(60, 75, 130, 0.125) !important;
+}
 input[type=submit]:hover,
 input[type=reset]:hover,
 input[type=button]:hover,
@@ -2477,6 +2497,14 @@ button:disabled,
 }
 .features article:nth-child(2n) {
   margin-right: 0;
+}
+.features article h3 {
+  color: rgb(255, 255, 255) !important;
+  padding-bottom: 1em;
+  border-bottom: solid 2px rgba(255, 255, 255, 0.125) !important;
+}
+.features article p {
+  color: rgb(255, 255, 255) !important;
 }
 .features article .image {
   border-radius: 5px 5px 0 0;
@@ -2876,7 +2904,7 @@ body.is-menu-visible #menu .inner {
   position: absolute;
   opacity: 0.2;
   width: 100%;
-  height: 90vh;
+  height: 60vw;
   top: 0;
   left: 0;
   overflow: hidden;
@@ -2957,6 +2985,11 @@ body.is-menu-visible #menu .inner {
   border-top: solid 2px rgba(255, 255, 255, 0.125);
   padding-top: 0.8em;
 }
+@media screen and (max-width: 1680px) {
+  #banner .video-wrapper {
+    height: 80vw;
+  }
+}
 @media screen and (max-width: 1280px) {
   #banner {
     padding: 7em 0 8.25em 0;
@@ -2973,6 +3006,9 @@ body.is-menu-visible #menu .inner {
   }
   #banner .inner {
     width: 100%;
+  }
+  #banner .video-wrapper {
+    height: 90vh;
   }
 }
 @media screen and (max-width: 736px) {
@@ -3138,7 +3174,7 @@ body.is-preload #banner p {
   transform: scaleY(-1) scaleX(-1);
 }
 .wrapper .inner {
-  padding: 3em 0 1em 0;
+  padding: 1em 0 0.1em 0;
   margin: 0 auto;
   width: 55em;
 }
@@ -3202,6 +3238,30 @@ body.is-preload #banner p {
 .wrapper.style6:after {
   box-shadow: inset 0 -1px 0 0 rgb(76.2970773381, 89.8650047609, 139.2029226619), 0 1px 0 0 rgb(76.2970773381, 89.8650047609, 139.2029226619);
 }
+.wrapper.style1 {
+  background-color: #ffd5d5;
+}
+.wrapper.style1:before, .wrapper.style1:after {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%23ffd5d5%3B' /%3E%3C/svg%3E");
+}
+.wrapper.style1:before {
+  box-shadow: inset 0 -1px 0 0 #ffd5d5, 0 1px 0 0 #ffd5d5;
+}
+.wrapper.style1:after {
+  box-shadow: inset 0 -1px 0 0 #ffd5d5, 0 1px 0 0 #ffd5d5;
+}
+.wrapper.style2 {
+  background-color: #d1e1ff;
+}
+.wrapper.style2:before, .wrapper.style2:after {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%23d1e1ff%3B' /%3E%3C/svg%3E");
+}
+.wrapper.style2:before {
+  box-shadow: inset 0 -1px 0 0 #d1e1ff, 0 1px 0 0 #d1e1ff;
+}
+.wrapper.style2:after {
+  box-shadow: inset 0 -1px 0 0 #d1e1ff, 0 1px 0 0 #d1e1ff;
+}
 .wrapper.spotlight {
   background-color: rgb(60, 75, 130);
 }
@@ -3250,7 +3310,7 @@ body.is-preload #banner p {
 .wrapper.spotlight .partners div {
   background-color: white;
   padding: 1em;
-  border-radius: 30px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   height: 10em;
@@ -3277,8 +3337,11 @@ body.is-preload #banner p {
   flex-direction: row-reverse;
   text-align: right;
 }
+.wrapper.spotlight:nth-child(2n-1) .inner h2 {
+  justify-content: flex-end;
+}
 .wrapper.spotlight:nth-child(2n-1) .image {
-  margin: 0 0 2em 3em;
+  margin: 0 0 0 3em;
 }
 .wrapper.spotlight.style1 {
   background-color: #ffd5d5;
@@ -3319,7 +3382,7 @@ body.is-preload #banner p {
     left: 0;
   }
   .wrapper .inner {
-    padding: 3em 3em 1em 3em;
+    padding: 1em 3em 0.1em 3em;
     width: 100%;
   }
   .wrapper.spotlight .image {
@@ -3347,12 +3410,6 @@ body.is-preload #banner p {
   .wrapper .inner {
     padding: 2em 2em 0.1em 2em;
   }
-  .wrapper.spotlight .inner {
-    -moz-align-items: -moz-flex-start;
-    -webkit-align-items: -webkit-flex-start;
-    -ms-align-items: -ms-flex-start;
-    align-items: flex-start;
-  }
   .wrapper.spotlight .image {
     width: 19em;
     margin: 0 1.75em 2em 0;
@@ -3379,14 +3436,18 @@ body.is-preload #banner p {
 
 /* Footer */
 #footer {
-  background-color: rgb(60, 75, 130);
+  background-color: #2c375f;
   background-size: auto, cover;
   background-position: center, center;
   margin-top: -6.5em;
   padding-top: 6.5em;
 }
+#footer .some {
+  flex-wrap: nowrap !important;
+  gap: 5em;
+}
 #footer .inner {
-  padding: 5em 0 3em 0;
+  padding: 2em 0 0.1em 0;
   display: -moz-flex;
   display: -webkit-flex;
   display: -ms-flex;
@@ -3445,7 +3506,7 @@ body.is-preload #banner p {
 }
 @media screen and (max-width: 1280px) {
   #footer {
-    background-color: rgb(60, 75, 130);
+    background-color: #2c375f;
     background-size: auto, cover;
     background-position: center, center;
     margin-top: -6.5em;
