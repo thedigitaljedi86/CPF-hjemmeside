@@ -160,6 +160,11 @@ body, input, select, textarea {
   justify-content: flex-start;
   align-items: center;
 }
+.style1 h2.event-details, .style2 h2.event-details, .style1 h3.event-details, .style2 h3.event-details, .style1 p.event-details, .style2 p.event-details, .style1 a.event-details, .style2 a.event-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
 
 .style3 h2.major, .style3 h3.major, .style3 p.major, .style3 a.major {
   display: flex;

@@ -53,6 +53,12 @@
 
 				}
 
+					&.event-details {
+					display: flex;
+					flex-direction: column;
+					gap: 1em;
+				}
+
 	}
 
 	.style3 h2, .style3 h3, .style3 p, .style3 a {
