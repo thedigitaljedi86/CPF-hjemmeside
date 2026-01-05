@@ -2603,6 +2603,9 @@ body.page-bg--light {
   width: 100%;
   z-index: 10000;
 }
+#header img {
+  height: 2em;
+}
 #header h1 {
   -moz-transition: opacity 0.2s ease-in-out, visibility 0.2s;
   -webkit-transition: opacity 0.2s ease-in-out, visibility 0.2s;
@@ -2616,6 +2619,9 @@ body.page-bg--light {
 }
 #header h1 a {
   border: 0;
+  display: flex;
+  align-items: center;
+  gap: 1em;
 }
 #header nav {
   font-family: Raleway, Helvetica, sans-serif;
@@ -2681,6 +2687,9 @@ body.page-bg--light {
   #header {
     height: 2.75em;
     line-height: 2.75em;
+  }
+  #header img {
+    height: 1.5em;
   }
   #header nav {
     top: 0;

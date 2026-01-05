@@ -18,6 +18,10 @@
 		width: 100%;
 		z-index: _misc(z-index-base);
 
+		img {
+				height: 2em;
+			}
+
 		h1 {
 			@include vendor('transition', (
 				'opacity #{_duration(transition)} ease-in-out',
@@ -31,6 +35,9 @@
 
 			a {
 				border: 0;
+				display: flex;
+   				align-items: center;
+    			gap: 1em;
 			}
 		}
 
@@ -91,6 +98,10 @@
 		@include breakpoint('<=small') {
 			height: 2.75em;
 			line-height: 2.75em;
+
+			img {
+					height: 1.5em;
+				}
 
 			nav {
 				top: 0;
