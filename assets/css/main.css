@@ -154,6 +154,12 @@ body, input, select, textarea {
   justify-content: flex-start;
   align-items: center;
 }
+.style1 h2.event, .style2 h2.event, .style1 h3.event, .style2 h3.event, .style1 p.event, .style2 p.event, .style1 a.event, .style2 a.event {
+  display: flex;
+  gap: 1em;
+  justify-content: flex-start;
+  align-items: center;
+}
 
 .style3 h2.major, .style3 h3.major, .style3 p.major, .style3 a.major {
   display: flex;
