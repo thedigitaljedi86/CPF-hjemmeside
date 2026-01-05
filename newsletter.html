@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<!--
+	Solid State by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>CBS Personal Finance | Join The Team</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+</head>
+
+<body class="is-preload">
+
+	<!-- Page Wrapper -->
+	<div id="page-wrapper">
+
+		<!-- Header -->
+		<header id="header">
+			<h1><a href="index.html">CBS Personal Finance</a></h1>
+			<nav>
+				<a href="#menu">Menu</a>
+			</nav>
+		</header>
+
+		<!-- Menu -->
+		<nav id="menu">
+			<div class="inner">
+				<h2>Menu</h2>
+				<ul class="links">
+					<li class="has-submenu">
+						<a href="#" class="submenu-toggle" aria-expanded="false">About Us</a>
+						<ul class="submenu">
+							<li><a href="what.html">What is CBS Personal Finance?</a></li>
+							<li><a href="team.html">The Team</a></li>
+						</ul>
+					</li>
+					<li><a href="partners.html">Our Partners</a></li>
+					<li><a href="events.html">Events</a></li>
+					<li><a href="join.html">Join The Team</a></li>
+				</ul>
+				<a href="#" class="close">Close</a>
+			</div>
+		</nav>
+
+		<!-- Wrapper -->
+		<section id="wrapper">
+			<header class="join-header">
+				<div class="inner">
+					<h2>Sign up for our newsletter</h2>
+				</div>
+			</header>
+
+			<!-- Content -->
+
+			<section id="two" class="wrapper style1">
+				<div class="inner">
+					<h2 class="major">Become a part of our team</h2>
+					<p>If any of the teams or the work they do resonates with you, we’d love to hear from you. Please
+						send us your resume along with a short introduction about who you are and why you’d like to
+						join.</p>
+					<section>
+						<script src="https://js.hsforms.net/forms/embed/48129532.js" defer></script>
+						<div style="padding-bottom: 3rem;" class="hs-form-frame" data-region="na1" data-form-id="9aa4b043-c518-45bd-a0cf-5cbea204ccbe"
+							data-portal-id="48129532"></div>
+					</section>
+
+				</div>
+			</section>
+		</section>
+
+		<!-- Footer -->
+		<section id="footer">
+			<div class="inner some">
+				<ul class="contact">
+					<li><img src="images/white_logo.png" alt="" /></li>
+
+				</ul>
+				<ul class="contact">
+					<li class="icon solid fa-home logo-contact">
+						Solbjerg plads 3, 2000 Frederiksberg<br />
+						CVR: 45877582
+					</li>
+					<li class="icon solid fa-phone"><a href="tel:+4527400093">+45 27 40 00 93</a></li>
+					<li class="icon solid fa-envelope"><a
+							href="mailto:cbspersonalfinance@hotmail.com">cbspersonalfinance@hotmail.com</a></li>
+				</ul>
+				<ul class="contact">
+					<li class="icon brands fa-facebook-f"><a
+							href="https://www.facebook.com/profile.php?id=61565520235314">Facebook</a></li>
+					<li class="icon brands fa-instagram"><a
+							href="https://www.instagram.com/cbs_personalfinance/">Instagram</a></li>
+					<li class="icon brands fa-linkedin"><a
+							href="https://www.linkedin.com/company/cbs-personal-finance/">LinkedIn</a></li>
+				</ul>
+			</div>
+			<div class="inner">
+				<ul class="copyright">
+					<li>&copy; CBS Personal Finance All rights reserved.</li>
+					<li>Developed by: IT Performance</li>
+					<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div>
+		</section>
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			var toggles = document.querySelectorAll('#menu .submenu-toggle');
+
+			toggles.forEach(function (toggle) {
+				toggle.addEventListener('click', function (e) {
+					e.preventDefault();
+
+					var li = toggle.closest('.has-submenu');
+					var isOpen = li.classList.toggle('open');
+
+					// Tilgængelighed
+					toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+				});
+			});
+		});
+	</script>
+</body>
+
+</html>
