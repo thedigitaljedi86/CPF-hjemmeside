@@ -45,6 +45,14 @@
     				align-items: center;
 
 				}
+		&.event {
+					display: flex;
+					gap: 1em;
+    				justify-content: flex-start;
+    				align-items: center;
+
+				}
+
 	}
 
 	.style3 h2, .style3 h3, .style3 p, .style3 a {

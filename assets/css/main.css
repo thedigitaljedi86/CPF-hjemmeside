@@ -154,6 +154,12 @@ body, input, select, textarea {
   justify-content: flex-start;
   align-items: center;
 }
+.style1 h2.event, .style2 h2.event, .style1 h3.event, .style2 h3.event, .style1 p.event, .style2 p.event, .style1 a.event, .style2 a.event {
+  display: flex;
+  gap: 1em;
+  justify-content: flex-start;
+  align-items: center;
+}
 
 .style3 h2.major, .style3 h3.major, .style3 p.major, .style3 a.major {
   display: flex;
@@ -2603,6 +2609,9 @@ body.page-bg--light {
   width: 100%;
   z-index: 10000;
 }
+#header img {
+  height: 2em;
+}
 #header h1 {
   -moz-transition: opacity 0.2s ease-in-out, visibility 0.2s;
   -webkit-transition: opacity 0.2s ease-in-out, visibility 0.2s;
@@ -2616,6 +2625,9 @@ body.page-bg--light {
 }
 #header h1 a {
   border: 0;
+  display: flex;
+  align-items: center;
+  gap: 1em;
 }
 #header nav {
   font-family: Raleway, Helvetica, sans-serif;
@@ -2681,6 +2693,9 @@ body.page-bg--light {
   #header {
     height: 2.75em;
     line-height: 2.75em;
+  }
+  #header img {
+    height: 1.5em;
   }
   #header nav {
     top: 0;
