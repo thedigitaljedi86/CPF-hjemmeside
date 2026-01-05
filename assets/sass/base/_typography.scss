@@ -50,15 +50,18 @@
 					gap: 1em;
     				justify-content: flex-start;
     				align-items: center;
+					margin: 0;
 
-				}
+				}				
+	}
 
-					&.event-details {
+	.style1 div, .style2 div, .style3 div {
+		&.event-details {
 					display: flex;
 					flex-direction: column;
 					gap: 1em;
-				}
-
+					padding-bottom: 1em;
+				}				
 	}
 
 	.style3 h2, .style3 h3, .style3 p, .style3 a {
