@@ -2630,6 +2630,7 @@ body.page-bg--light {
   margin-bottom: 0;
   opacity: 1;
   visibility: visible;
+  width: fit-content;
 }
 #header h1 a {
   border: 0;
