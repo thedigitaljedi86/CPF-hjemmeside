@@ -29,7 +29,7 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftp
+          protocol: ftps
           port: 22
           local-dir: ./        # <-- ret til fx ./build/ eller ./publish/
           server-dir: /webroots/282b42a4/ # <-- ret til din remote folder
