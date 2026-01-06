@@ -30,9 +30,9 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftp
-          port: 21
-          local-dir: ./dist/        # <-- ret til fx ./build/ eller ./publish/
-          server-dir: /public_html/ # <-- ret til din remote folder
+          port: 22
+          local-dir: ./        # <-- ret til fx ./build/ eller ./publish/
+          server-dir: /webroots/282b42a4/ # <-- ret til din remote folder
           exclude: |
             **/.git*
             **/.github*
