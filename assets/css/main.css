@@ -415,7 +415,7 @@ hr.major {
 .circle-loader {
   margin-bottom: 3.5em;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-left-color: white;
+  border-left-color: #2C375F;
   animation: loader-spin 1.2s infinite linear;
   position: relative;
   display: inline-block;
@@ -428,7 +428,7 @@ hr.major {
 .load-complete {
   -webkit-animation: none;
   animation: none;
-  border-color: white;
+  border-color: #2C375F;
   transition: border 500ms ease-out;
 }
 
@@ -448,8 +448,8 @@ hr.major {
   height: 3.5em;
   width: 1.75em;
   transform-origin: left top;
-  border-right: 3px solid white;
-  border-top: 3px solid white;
+  border-right: 3px solid #2C375F;
+  border-top: 3px solid #2C375F;
   content: "";
   left: 1.75em;
   top: 3.5em;

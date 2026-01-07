@@ -228,38 +228,43 @@
 					</section>
 
 				</div>
+			</section>
+		</section>
 	</div>
-	</section>
-	</section>
 
-				<!-- Footer -->
-					<section id="footer">
-						<div class="inner some">
-							<ul class="contact">
-								<li><img src="images/white_logo.png" alt="" /></li>
-				
-							</ul>
-							<ul class="contact">
-									<li class="icon solid fa-home logo-contact">
-									Solbjerg plads 3, 2000 Frederiksberg<br />
-									CVR: 45877582
-								</li>
-								<li class="icon solid fa-phone"><a href="tel:+4527400093">+45 27 40 00 93</a></li>
-								<li class="icon solid fa-envelope"><a href="mailto:cbspersonalfinance@hotmail.com">cbspersonalfinance@hotmail.com</a></li>
-							</ul>
-							<ul class="contact">
-								<li class="icon brands fa-facebook-f"><a href="https://www.facebook.com/profile.php?id=61565520235314">Facebook</a></li>
-								<li class="icon brands fa-instagram"><a href="https://www.instagram.com/cbs_personalfinance/">Instagram</a></li>
-								<li class="icon brands fa-linkedin"><a href="https://www.linkedin.com/company/cbs-personal-finance/">LinkedIn</a></li>
-							</ul></div>
-							<div class="inner">
-							<ul class="copyright">
-								<li>&copy; CBS Personal Finance All rights reserved.</li>
-								<li>Made by <a href="https://itperformance.dk/">IT Performance</a></li>
-							</ul>
-						</div>
-					</section>
-			</div>
+	<!-- Footer -->
+	<section id="footer">
+		<div class="inner some">
+			<ul class="contact">
+				<li><img src="images/white_logo.png" alt="" /></li>
+
+			</ul>
+			<ul class="contact">
+				<li class="icon solid fa-home logo-contact">
+					Solbjerg plads 3, 2000 Frederiksberg<br />
+					CVR: 45877582
+				</li>
+				<li class="icon solid fa-phone"><a href="tel:+4527400093">+45 27 40 00 93</a></li>
+				<li class="icon solid fa-envelope"><a
+						href="mailto:cbspersonalfinance@hotmail.com">cbspersonalfinance@hotmail.com</a></li>
+			</ul>
+			<ul class="contact">
+				<li class="icon brands fa-facebook-f"><a
+						href="https://www.facebook.com/profile.php?id=61565520235314">Facebook</a></li>
+				<li class="icon brands fa-instagram"><a
+						href="https://www.instagram.com/cbs_personalfinance/">Instagram</a></li>
+				<li class="icon brands fa-linkedin"><a
+						href="https://www.linkedin.com/company/cbs-personal-finance/">LinkedIn</a></li>
+			</ul>
+		</div>
+		<div class="inner">
+			<ul class="copyright">
+				<li>&copy; CBS Personal Finance All rights reserved.</li>
+				<li>Made by <a href="https://itperformance.dk/">IT Performance</a></li>
+			</ul>
+		</div>
+	</section>
+	</div>
 
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
@@ -288,48 +293,41 @@
 	<script>
 		window.parent.postMessage({ footerHeight: document.body.scrollHeight }, '*');
 	</script>
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-
-	<script type="text/javascript">      (function () {
-			emailjs.init("tmW-Wh2vTT2lJQ-a_sd15");
-		})();
-	</script>
-	<script>
-		emailjs.sendForm("service_3k7fiqq", "template_r51m0vt", "#emailForm")
-	</script>
 
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
 	</script>
 	<script type="text/javascript">
-			(function () {
-				emailjs.init({
-					publicKey: "tmW-Wh2vTT2lJQ-a_sd15",
-				});
-			})();
+		(function () {
+			emailjs.init({
+				publicKey: "128Hw6C7r5YL9D6_C",
+			});
+		})();
 	</script>
 	<script>
 		document.getElementById("emailForm").addEventListener("submit", function (e) {
 			e.preventDefault();
-			document.getElementById("contact-form").style.display = "none"
+			document.getElementById("emailForm").style.display = "none"
 			document.getElementById("spinner").style.display = "inline-block"
 
 			const name = document.getElementById("name").value;
+			const title = document.getElementById("study").value;
 			const email = document.getElementById("email").value;
 			const phone = document.getElementById("phone").value;
 			const message = document.getElementById("message").value;
 
 			emailjs.send("service_3k7fiqq", "template_r51m0vt", {
-				from_name: name,
-				from_email: email,
-				title: `${name} - ${phone}`,
+				name: name,
+				email: email,
+				phone: phone,
+				title: title,
 				message: message,
 			}).then(
 				function () {
 					$(".circle-loader").toggleClass("load-complete");
 					$(".checkmark").toggle();
-					setTimeout(function () {
-						window.location.href = "/";
-					}, 1200)
+					// setTimeout(function () {
+					// 	window.location.href = "/";
+					// }, 1200)
 
 				},
 				function (error) {
@@ -339,5 +337,4 @@
 		});
 	</script>
 </body>
-
 </html>

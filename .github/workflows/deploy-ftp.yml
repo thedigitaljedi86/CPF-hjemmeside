@@ -1,4 +1,4 @@
-name: Deploy to FTP
+name: Deploy to SFTP (SSH)
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch: {}
 
 concurrency:
-  group: deploy-ftp
+  group: deploy-sftp
   cancel-in-progress: true
 
 jobs:
@@ -17,23 +17,24 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # VALGFRIT: build-step (fjern hvis du bare uploader repo-filer)
-      # Eksempel til Node (Vite/React/Vue/etc.)
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      # VALGFRIT: hvis du faktisk bygger noget (ellers kan du fjerne Node-steps)
+      #- name: Setup Node
+      #  uses: actions/setup-node@v4
+      #  with:
+      #    node-version: "20"
+      #    cache: "npm"
 
-      # FTP deploy
-      - name: FTP Deploy
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ssh.cxy5f25jm.service.one
-          username: cxy5f25jm_ssh
-          password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftps
-          port: 22
-          local-dir: ./        # <-- ret til fx ./build/ eller ./publish/
-          server-dir: /webroots/282b42a4/ # <-- ret til din remote folder
-          exclude: |
-            **/.git*
-            **/.github*
-            **/node_modules/**
+      # Hvis du har build:
+      # - run: npm ci
+      # - run: npm run build
+      #   (og så deploy fx ./dist i stedet for ./)
+
+      - name: Install sshpass
+        run: sudo apt-get install -y sshpass
+
+      - name: Deploy with rsync over SSH (password)
+        run: |
+          sshpass -p "${{ secrets.FTP_PASSWORD }}" rsync -avz --delete \
+            -e "ssh -p 22 -o StrictHostKeyChecking=no" \
+            ./ \
+            ${{ secrets.FTP_USERNAME }}@${{ secrets.FTP_SERVER }}:/webroots/282b42a4/
