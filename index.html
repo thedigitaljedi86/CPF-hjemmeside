@@ -16,7 +16,7 @@
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 	<link rel="manifest" href="/site.webmanifest">
 	<link rel="stylesheet" href="assets/css/main.css" />
-	
+
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
 	</noscript>
@@ -31,7 +31,7 @@
 		<header id="header" class="alt">
 			<h1>
 				<a href="index.html">
-					<img src="images/white_logo.png" alt=""/>
+					<img src="images/white_logo.png" alt="" />
 					CBS Personal Finance
 				</a>
 			</h1>
@@ -45,17 +45,17 @@
 			<div class="inner">
 				<h2>Menu</h2>
 				<ul class="links">
-						<li class="has-submenu">
-							<a href="#" class="submenu-toggle" aria-expanded="false">About Us</a>
-							<ul class="submenu">
-								<li><a href="what.html">What is CBS Personal Finance?</a></li>
-								<li><a href="team.html">The Team</a></li>
-							</ul>
-						</li>
-						<li><a href="partners.html">Our Partners</a></li>
-						<li><a href="events.html">Events</a></li>
-						<li><a href="join.html">Join The Team</a></li>
-					</ul>
+					<li class="has-submenu">
+						<a href="#" class="submenu-toggle" aria-expanded="false">About Us</a>
+						<ul class="submenu">
+							<li><a href="what.html">What is CBS Personal Finance?</a></li>
+							<li><a href="team.html">The Team</a></li>
+						</ul>
+					</li>
+					<li><a href="partners.html">Our Partners</a></li>
+					<li><a href="events.html">Events</a></li>
+					<li><a href="join.html">Join The Team</a></li>
+				</ul>
 				<a href="#" class="close">Close</a>
 			</div>
 		</nav>
@@ -63,16 +63,14 @@
 		<!-- Banner -->
 		<section id="banner">
 			<div class="video-wrapper">
-			<video autoplay playsinline muted loop id="bg_video" preload="auto" >
-  				<source src="/images/video_bg_slow.mp4" type="video/mp4" poster="/images/video_poster.jpg">
-			</video>
+				<video autoplay playsinline muted loop id="bg_video" preload="auto">
+					<source id="header-video" src="" type="" poster="">
+				</video>
 			</div>
 			<div class="inner">
-				<div class="logo"><img src="images/white_logo.png" alt="" /></div>
-				<p>Private investments | Personal finance | Private savings</p>
-				<i>
-					Our goal is to provide accessible knowledge and practical tools within private investments
-					and personal finance for all students in the Nordic region.</i>
+				<div class="logo"><img id="header-logo" src="" alt="" /></div>
+				<p id="header-header"></p>
+				<i id="header-text"></i>
 			</div>
 		</section>
 
@@ -89,7 +87,7 @@
 							esteemed patners. These gatherings are designed to inspire, educate and connect. From
 							thought-provoking talks to engaging workshops, each event is tailored to enrich your student
 							experience.</p>
-						  <a href="events.html" class="special">Events</a>
+						<a href="events.html" class="special">Events</a>
 					</div>
 				</div>
 			</section>
@@ -108,32 +106,37 @@
 		</section>
 
 		<!-- Footer -->
-			<section id="footer">
-						<div class="inner some">
-							<ul class="contact">
-								<li><img src="images/white_logo.png" alt="" /></li>
-				
-							</ul>
-							<ul class="contact">
-									<li class="icon solid fa-home logo-contact">
-									Solbjerg plads 3, 2000 Frederiksberg<br />
-									CVR: 45877582
-								</li>
-								<li class="icon solid fa-phone"><a href="tel:+4527400093">+45 27 40 00 93</a></li>
-								<li class="icon solid fa-envelope"><a href="mailto:cbspersonalfinance@hotmail.com">cbspersonalfinance@hotmail.com</a></li>
-							</ul>
-							<ul class="contact">
-								<li class="icon brands fa-facebook-f"><a href="https://www.facebook.com/profile.php?id=61565520235314">Facebook</a></li>
-								<li class="icon brands fa-instagram"><a href="https://www.instagram.com/cbs_personalfinance/">Instagram</a></li>
-								<li class="icon brands fa-linkedin"><a href="https://www.linkedin.com/company/cbs-personal-finance/">LinkedIn</a></li>
-							</ul></div>
-							<div class="inner">
-							<ul class="copyright">
-								<li>&copy; CBS Personal Finance All rights reserved.</li>
-								<li>Made by <a href="https://itperformance.dk/">IT Performance</a></li>
-							</ul>
-						</div>
-					</section>
+		<section id="footer">
+			<div class="inner some">
+				<ul class="contact">
+					<li><img src="images/white_logo.png" alt="" /></li>
+
+				</ul>
+				<ul class="contact">
+					<li class="icon solid fa-home logo-contact">
+						Solbjerg plads 3, 2000 Frederiksberg<br />
+						CVR: 45877582
+					</li>
+					<li class="icon solid fa-phone"><a href="tel:+4527400093">+45 27 40 00 93</a></li>
+					<li class="icon solid fa-envelope"><a
+							href="mailto:cbspersonalfinance@hotmail.com">cbspersonalfinance@hotmail.com</a></li>
+				</ul>
+				<ul class="contact">
+					<li class="icon brands fa-facebook-f"><a
+							href="https://www.facebook.com/profile.php?id=61565520235314">Facebook</a></li>
+					<li class="icon brands fa-instagram"><a
+							href="https://www.instagram.com/cbs_personalfinance/">Instagram</a></li>
+					<li class="icon brands fa-linkedin"><a
+							href="https://www.linkedin.com/company/cbs-personal-finance/">LinkedIn</a></li>
+				</ul>
+			</div>
+			<div class="inner">
+				<ul class="copyright">
+					<li>&copy; CBS Personal Finance All rights reserved.</li>
+					<li>Made by <a href="https://itperformance.dk/">IT Performance</a></li>
+				</ul>
+			</div>
+		</section>
 	</div>
 
 	<!-- Scripts -->
@@ -160,5 +163,27 @@
 			});
 		});
 	</script>
+
+	<script type="module">
+		import { getEntries, asHttpsUrl } from "./assets/js/contentfull.js";
+
+		const frontpage = await getEntries('frontpage');
+
+		// Eksempel: hent en bestemt entry på ID
+		const header = frontpage.get("5suteFBa3Q8g5nX0sLegZS")?.fields;
+
+		document.getElementById("header-header").innerHTML = header?.header;
+		document.getElementById("header-logo").setAttribute("src", asHttpsUrl(header?.logo.fields.file.url));
+		document.getElementById("header-text").innerHTML = header?.text;
+        
+		// Bg video
+		document.getElementById("header-video").setAttribute("src", asHttpsUrl(header?.video.fields.file.url));
+		document.getElementById("header-video").setAttribute("type", header?.video.fields.file.contentType);
+		document.getElementById("header-video").setAttribute("poster", asHttpsUrl(header?.poster.fields.file.url));
+
+
+		const videoEl = document.getElementById("bg_video").load();
+	</script>
 </body>
+
 </html>
