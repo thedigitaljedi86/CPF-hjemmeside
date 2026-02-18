@@ -1,0 +1,66 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="../assets/css/noscript.css" />
+    </noscript>
+</head>
+
+<body style="background: transparent;">
+    <section id="footer">
+        <div class="inner some">
+            <ul class="contact">
+                <li><img id="footer-logo" src="" alt="" /></li>
+
+            </ul>
+            <ul class="contact">
+                <li id="footer-contact" class="icon solid fa-home logo-contact"></li>
+                <li class="icon solid fa-phone"><a id="footer-phone" href=""></a></li>
+                <li class="icon solid fa-envelope"><a id="footer-email" href=""></a></li>
+            </ul>
+            <ul class="contact">
+                <li class="icon brands fa-facebook-f"><a id="footer-facebook" href="">Facebook</a></li>
+                <li class="icon brands fa-instagram"><a id="footer-instagram" href="">Instagram</a></li>
+                <li class="icon brands fa-linkedin"><a id="footer-linkedin" href="">LinkedIn</a></li>
+            </ul>
+        </div>
+        <div class="inner">
+            <ul class="copyright">
+                <li>&copy; CBS Personal Finance All rights reserved.</li>
+                <li>Made by <a href="https://itperformance.dk/">IT Performance</a></li>
+            </ul>
+        </div>
+    </section>
+    <script>
+        window.parent.postMessage({ footerHeight: document.body.scrollHeight }, '*');
+    </script>
+    <script type="module">
+        import { getEntries, asHttpsUrl } from "../assets/js/contentfull.js";
+
+        const footer = await getEntries('footer');
+
+        // Eksempel: hent en bestemt entry på ID
+        insertFooterContent(footer);
+
+        function insertFooterContent(footer) {
+            const fields = footer.get("66FaTgkTK5haF45R4crwdV")?.fields;
+
+            // Element references
+            document.getElementById("footer-contact").innerHTML = fields?.address + "<br>" + fields?.cvr;
+            document.getElementById("footer-phone").innerHTML = fields?.phone;
+            document.getElementById("footer-phone").setAttribute("href", "tel:" + fields?.phone.replace(/ /g, ''));
+
+            document.getElementById("footer-email").innerHTML = fields?.email;
+            document.getElementById("footer-email").setAttribute("href", "mailto:" + fields?.email);
+
+            document.getElementById("footer-facebook").setAttribute("href", fields?.facebook);
+            document.getElementById("footer-linkedin").setAttribute("href", fields?.linkedIn);
+            document.getElementById("footer-instagram").setAttribute("href", fields?.instagram);
+
+            document.getElementById("footer-logo").setAttribute("src", asHttpsUrl(fields?.logo.fields.file.url));
+        }
+    </script>
+</body>
+
+</html>

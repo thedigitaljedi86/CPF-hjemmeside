@@ -14,7 +14,8 @@
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
 	</noscript>
-	<script defer src="https://webanalytics.digitaljedi.dk/script.js" data-website-id="7fa0927d-5461-4f3d-80f8-365d4a948c18"></script>
+	<script defer src="https://webanalytics.digitaljedi.dk/script.js"
+		data-website-id="7fa0927d-5461-4f3d-80f8-365d4a948c18"></script>
 </head>
 
 <body class="is-preload">
@@ -60,7 +61,8 @@
 			<header class="events-header">
 				<div class="inner">
 					<h2>Events</h2>
-					<p>Find information about our upcoming and previous signature events organized in collaboration with our partners</p>
+					<p>Find information about our upcoming and previous signature events organized in collaboration with
+						our partners</p>
 				</div>
 			</header>
 
@@ -70,10 +72,10 @@
 					<a href="#" class="image"><img src="images/DSC_0099_kvadratisk.jpg" alt="" /></a>
 					<div class="content">
 						<h2 class="major">Navigating the Investment Landscape of 2026 with Saxo Bank</h2>
-						<div class="event-details">		
+						<div class="event-details">
 							<script src="https://www.universe.com/embed2.js" data-state=""></script>
-						<a href="https://www.universe.com/events/investment-event-with-saxo-bank-tickets-RPX7WV?buttonColor=#2c375f&buttonText=Buy tickets"
-							class="special">Buy tickets</a>
+							<a href="https://www.universe.com/events/investment-event-with-saxo-bank-tickets-RPX7WV?buttonColor=#2c375f&buttonText=Buy tickets"
+								class="special">Buy tickets</a>
 							<p class="event">
 								<i class="icon solid fa-calendar"></i> 17th of March 2026
 							</p>
@@ -132,36 +134,16 @@
 
 		<!-- Footer -->
 		<section id="footer">
-			<div class="inner some">
-				<ul class="contact">
-					<li><img src="images/white_logo.png" alt="" /></li>
-
-				</ul>
-				<ul class="contact">
-					<li class="icon solid fa-home logo-contact">
-						Solbjerg plads 3, 2000 Frederiksberg<br />
-						CVR: 45877582
-					</li>
-					<li class="icon solid fa-phone"><a href="tel:+4527400093">+45 27 40 00 93</a></li>
-					<li class="icon solid fa-envelope"><a
-							href="mailto:cbspersonalfinance@hotmail.com">cbspersonalfinance@hotmail.com</a></li>
-				</ul>
-				<ul class="contact">
-					<li class="icon brands fa-facebook-f"><a
-							href="https://www.facebook.com/profile.php?id=61565520235314">Facebook</a></li>
-					<li class="icon brands fa-instagram"><a
-							href="https://www.instagram.com/cbs_personalfinance/">Instagram</a></li>
-					<li class="icon brands fa-linkedin"><a
-							href="https://www.linkedin.com/company/cbs-personal-finance/">LinkedIn</a></li>
-				</ul>
-			</div>
-			<div class="inner">
-				<ul class="copyright">
-					<li>&copy; CBS Personal Finance All rights reserved.</li>
-					<li>Made by <a href="https://itperformance.dk/">IT Performance</a></li>
-				</ul>
-			</div>
+			<iframe src="./shared/footer.html" width="100%" frameborder="0" scrolling="no" id="footerFrame"></iframe>
 		</section>
+		<script>
+			// Dynamisk højde: Forudsætter at /footer.html sender sin højde via postMessage
+			window.addEventListener('message', function (event) {
+				if (event.data && event.data.footerHeight) {
+					document.getElementById('footerFrame').style.height = event.data.footerHeight + 'px';
+				}
+			}, false);
+		</script>
 
 	</div>
 

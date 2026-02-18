@@ -14,7 +14,8 @@
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
 	</noscript>
-	<script defer src="https://webanalytics.digitaljedi.dk/script.js" data-website-id="7fa0927d-5461-4f3d-80f8-365d4a948c18"></script>
+	<script defer src="https://webanalytics.digitaljedi.dk/script.js"
+		data-website-id="7fa0927d-5461-4f3d-80f8-365d4a948c18"></script>
 </head>
 
 <body class="is-preload">
@@ -59,92 +60,42 @@
 		<section id="wrapper">
 			<header class="partners-header">
 				<div class="inner">
-					<h2>Our Partners</h2>
-					<p>
-						Thanks to collaboration with our partners, we are able to offer high-quality events,
-						workshops, and insights that bring real-world perspectives on personal finance to students
-					</p>
+					<h2 id="header-headline"></h2>
+					<p id="header-text"></p>
 				</div>
 			</header>
 			<section id="wrapper">
 				<section id="one" class="wrapper spotlight style1">
 					<div class="inner">
 						<div class="content">
-							<h2 class="major">Corporate Partner – Private Investments</h2>
-							<div class="partners">
-								<div>
-									<img src="images/partners/saxo_be_invested__saxo_blue_logo_rgb.webp" alt="" /></img>
-								</div>
-								<div>
-									<img src="images/partners/nordnet-logo-sort.webp" alt="" /></img>
-								</div>
-								<div>
-									<img src="images/partners/linkedinpost-secondary.webp" alt="" /></img>
-								</div>
-							</div>
+							<h2 id="pi-headline" class="major"></h2>
+							<div id="pi-logos" class="partners"></div>
 						</div>
 					</div>
-	</div>
-	</section>
-	<section id="two" class="wrapper alt spotlight style2">
-		<div class="inner">
-			<div class="content">
-				<h2 class="major">Corporate Partner – Personal Finance</h2>
-				<div class="partners">
-					<div>
-						<img src="images/partners/mailsignatur-3-1024x173-1.webp" alt="" /></img>
+				</section>
+				<section id="two" class="wrapper alt spotlight style2">
+					<div class="inner">
+						<div class="content">
+							<h2 id="pf-headline" class="major"></h2>
+							<div id="pf-logos" class="partners"></div>
+						</div>
 					</div>
-					<div>
-						<img src="images/partners/logo_sort_prime28098r_rgb.webp" alt="" /></img>
-					</div>
-					<div>
-						<img src="images/partners/ca_a-kasse_h_rgb.webp" alt="" /></img>
-					</div>
-					<div>
-						<img src="images/partners/finansforbundet-logo-dark-blue-rgb-2.webp" alt="" /></img>
-					</div>
-					<div>
-						<img src="images/partners/Danske_BankLogo_RGB-removebg-preview.png" alt="" /></img>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	</section>
+				</section>
+			</section>
+		</section>
 
-	<!-- Footer -->
-	<section id="footer">
-		<div class="inner some">
-			<ul class="contact">
-				<li><img src="images/white_logo.png" alt="" /></li>
-
-			</ul>
-			<ul class="contact">
-				<li class="icon solid fa-home logo-contact">
-					Solbjerg plads 3, 2000 Frederiksberg<br />
-					CVR: 45877582
-				</li>
-				<li class="icon solid fa-phone"><a href="tel:+4527400093">+45 27 40 00 93</a></li>
-				<li class="icon solid fa-envelope"><a
-						href="mailto:cbspersonalfinance@hotmail.com">cbspersonalfinance@hotmail.com</a></li>
-			</ul>
-			<ul class="contact">
-				<li class="icon brands fa-facebook-f"><a
-						href="https://www.facebook.com/profile.php?id=61565520235314">Facebook</a></li>
-				<li class="icon brands fa-instagram"><a
-						href="https://www.instagram.com/cbs_personalfinance/">Instagram</a></li>
-				<li class="icon brands fa-linkedin"><a
-						href="https://www.linkedin.com/company/cbs-personal-finance/">LinkedIn</a></li>
-			</ul>
-		</div>
-		<div class="inner">
-			<ul class="copyright">
-				<li>&copy; CBS Personal Finance All rights reserved.</li>
-				<li>Made by <a href="https://itperformance.dk/">IT Performance</a></li>
-			</ul>
-		</div>
-	</section>
-	</section>
+		<!-- Footer -->
+		<section id="footer">
+			<iframe src="./shared/footer.html" width="100%" frameborder="0" scrolling="no" id="footerFrame"></iframe>
+		</section>
+		<script>
+			// Dynamisk højde: Forudsætter at /footer.html sender sin højde via postMessage
+			window.addEventListener('message', function (event) {
+				if (event.data && event.data.footerHeight) {
+					document.getElementById('footerFrame').style.height = event.data.footerHeight + 'px';
+				}
+			}, false);
+		</script>
 	</div>
 
 	<!-- Scripts -->
@@ -170,6 +121,54 @@
 				});
 			});
 		});
+	</script>
+
+		<script type="module">
+		import { getEntries, asHttpsUrl } from "./assets/js/contentfull.js";
+
+		const partners = await getEntries('partners');
+
+		// Eksempel: hent en bestemt entry på ID
+		insertPersonalFinanceContent(partners);
+		insertPrivateInvestmentsContent(partners);
+		insertHeaderContent(partners);
+		
+		function insertHeaderContent(partners) {
+			const header = partners.get("5n2NTceFpuMkcwyZ4AtDwc")?.fields;
+			
+			document.getElementById("header-headline").innerHTML = header?.headline;
+			document.getElementById("header-text").innerHTML = header?.text;
+		}
+
+		function insertPersonalFinanceContent(partners) {
+			const pf = partners.get("2pcMELjmQ8lrlXHoCJAhFt")?.fields;
+
+			document.getElementById("pf-headline").innerHTML = pf?.headline;
+			
+			pf?.logos.forEach(logo => {
+				document.getElementById("pf-logos").appendChild(createLogoElement(logo));
+			});
+		}
+
+		function insertPrivateInvestmentsContent(partners) {
+			const pi = partners.get("4V8Ot1JZXZaQMS02lHQ0vo")?.fields;
+
+			document.getElementById("pi-headline").innerHTML = pi?.headline;
+			
+			pi?.logos.forEach(logo => {
+				document.getElementById("pi-logos").appendChild(createLogoElement(logo));
+			});
+		}
+
+		function createLogoElement(logo) {
+			const div = document.createElement("div");
+			const img = document.createElement("img");
+			img.setAttribute("src", asHttpsUrl(logo.fields.file.url));
+			img.setAttribute("alt", logo.fields.title);
+			div.appendChild(img);
+			return div;
+		}
+
 	</script>
 </body>
 

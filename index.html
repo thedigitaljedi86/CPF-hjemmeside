@@ -78,28 +78,26 @@
 		<!-- Wrapper -->
 		<section id="wrapper">
 
-			<!-- One -->
+			<!-- Event -->
 			<section id="one" class="wrapper spotlight style1">
 				<div class="inner">
-					<a href="#" class="image"><img src="images/events_compressed.jpg" alt="" /></a>
+					<a id="event-image-wrapper" href="#" class="image"><img id="event-image" src="" alt="" /></a>
 					<div class="content">
-						<h2 class="major">Join our next event</h2>
-						<p>Join us for our signature events, in collaboration with our
-							esteemed patners. These gatherings are designed to inspire, educate and connect. From
-							thought-provoking talks to engaging workshops, each event is tailored to enrich your student
-							experience.</p>
-						<a href="events.html" class="special">Events</a>
+						<h2 class="major" id="event-headline"></h2>
+						<p id="event-text"></p>
+						<a id="event-button" href="" class="special"></a>
 					</div>
 				</div>
 			</section>
 
-			<!-- Two -->
+			<!-- Newsletter -->
 			<section id="two" class="wrapper alt spotlight style2">
 				<div class="inner">
+					<a id="newsletter-image-wrapper" href="#" class="image"><img id="newsletter-image" src="" alt="" /></a>
 					<div class="content">
-						<h2 class="major">Sign up for our newsletter</h2>
-						<p>Stay in the loop and make sure you are the first to know when our next event is</p>
-						<a href="newsletter.html" class="special">sign up</a>
+						<h2 class="major" id="newsletter-headline"></h2>
+						<p id="newsletter-text"></p>
+						<a id="newsletter-button" href="" class="special"></a>
 					</div>
 				</div>
 			</section>
@@ -108,36 +106,16 @@
 
 		<!-- Footer -->
 		<section id="footer">
-			<div class="inner some">
-				<ul class="contact">
-					<li><img src="images/white_logo.png" alt="" /></li>
-
-				</ul>
-				<ul class="contact">
-					<li class="icon solid fa-home logo-contact">
-						Solbjerg plads 3, 2000 Frederiksberg<br />
-						CVR: 45877582
-					</li>
-					<li class="icon solid fa-phone"><a href="tel:+4527400093">+45 27 40 00 93</a></li>
-					<li class="icon solid fa-envelope"><a
-							href="mailto:cbspersonalfinance@hotmail.com">cbspersonalfinance@hotmail.com</a></li>
-				</ul>
-				<ul class="contact">
-					<li class="icon brands fa-facebook-f"><a
-							href="https://www.facebook.com/profile.php?id=61565520235314">Facebook</a></li>
-					<li class="icon brands fa-instagram"><a
-							href="https://www.instagram.com/cbs_personalfinance/">Instagram</a></li>
-					<li class="icon brands fa-linkedin"><a
-							href="https://www.linkedin.com/company/cbs-personal-finance/">LinkedIn</a></li>
-				</ul>
-			</div>
-			<div class="inner">
-				<ul class="copyright">
-					<li>&copy; CBS Personal Finance All rights reserved.</li>
-					<li>Made by <a href="https://itperformance.dk/">IT Performance</a></li>
-				</ul>
-			</div>
+			<iframe src="./shared/footer.html" width="100%" frameborder="0" scrolling="no" id="footerFrame"></iframe>
 		</section>
+        <script>
+            // Dynamisk højde: Forudsætter at /footer.html sender sin højde via postMessage
+            window.addEventListener('message', function (event) {
+                if (event.data && event.data.footerHeight) {
+                    document.getElementById('footerFrame').style.height = event.data.footerHeight + 'px';
+                }
+            }, false);
+        </script>
 	</div>
 
 	<!-- Scripts -->
@@ -171,19 +149,57 @@
 		const frontpage = await getEntries('frontpage');
 
 		// Eksempel: hent en bestemt entry på ID
-		const header = frontpage.get("5suteFBa3Q8g5nX0sLegZS")?.fields;
+		insertHeaderContent(frontpage);
+		insertEventContent(frontpage);
+		insertNewsletterContent(frontpage);
+		
+		function insertHeaderContent(frontpage) {
+			const header = frontpage.get("5suteFBa3Q8g5nX0sLegZS")?.fields;
+			
+			document.getElementById("header-header").innerHTML = header?.header;
+			document.getElementById("header-logo").setAttribute("src", asHttpsUrl(header?.logo.fields.file.url));
+			document.getElementById("header-text").innerHTML = header?.text;
+			
+			// Bg video
+			document.getElementById("header-video").setAttribute("src", asHttpsUrl(header?.video.fields.file.url));
+			document.getElementById("header-video").setAttribute("type", header?.video.fields.file.contentType);
+			document.getElementById("header-video").setAttribute("poster", asHttpsUrl(header?.poster.fields.file.url));
+			const videoEl = document.getElementById("bg_video").load();
+		}
 
-		document.getElementById("header-header").innerHTML = header?.header;
-		document.getElementById("header-logo").setAttribute("src", asHttpsUrl(header?.logo.fields.file.url));
-		document.getElementById("header-text").innerHTML = header?.text;
-        
-		// Bg video
-		document.getElementById("header-video").setAttribute("src", asHttpsUrl(header?.video.fields.file.url));
-		document.getElementById("header-video").setAttribute("type", header?.video.fields.file.contentType);
-		document.getElementById("header-video").setAttribute("poster", asHttpsUrl(header?.poster.fields.file.url));
+		function insertEventContent(frontpage) {
+			const event = frontpage.get("FUqDmW1syDHTCtOqSsgA6")?.fields;
 
+			// Element references
+			document.getElementById("event-headline").innerHTML = event?.headline;
+			document.getElementById("event-text").innerHTML = event?.text?.content[0]?.content[0]?.value;
+			document.getElementById("event-button").setAttribute("href", event?.link);
+			document.getElementById("event-button").innerHTML = event?.button;
 
-		const videoEl = document.getElementById("bg_video").load();
+			if(event?.image?.fields?.file?.url) {
+				document.getElementById("event-image").setAttribute("src", asHttpsUrl(event?.image.fields.file.url));
+			}
+			else{
+				document.getElementById("event-image-wrapper").style.display = "none";
+			}
+		}
+
+		function insertNewsletterContent(frontpage) {
+			const newsletter = frontpage.get("3IgeV0WfEJGFtcRJSuNteI")?.fields;
+
+			document.getElementById("newsletter-headline").innerHTML = newsletter?.headline;
+			document.getElementById("newsletter-text").innerHTML = newsletter?.text?.content[0]?.content[0]?.value;
+			document.getElementById("newsletter-button").setAttribute("href", newsletter?.link);
+			document.getElementById("newsletter-button").innerHTML = newsletter?.button;
+
+			if(newsletter?.image?.fields?.file?.url) {
+				document.getElementById("newsletter-image").setAttribute("src", asHttpsUrl(newsletter?.image.fields.file.url));
+			}
+			else{
+				document.getElementById("newsletter-image-wrapper").style.display = "none";
+			}
+		}
+
 	</script>
 </body>
 
