@@ -23,38 +23,8 @@
 	<!-- Page Wrapper -->
 	<div id="page-wrapper">
 
-		<!-- Header -->
-		<header id="header">
-			<h1>
-				<a href="index.html">
-					<img src="images/white_logo.png" alt="" />
-					CBS Personal Finance
-				</a>
-			</h1>
-			<nav>
-				<a href="#menu">Menu</a>
-			</nav>
-		</header>
-
-		<!-- Menu -->
-		<nav id="menu">
-			<div class="inner">
-				<h2>Menu</h2>
-				<ul class="links">
-					<li class="has-submenu">
-						<a href="#" class="submenu-toggle" aria-expanded="false">About Us</a>
-						<ul class="submenu">
-							<li><a href="what.html">What is CBS Personal Finance?</a></li>
-							<li><a href="team.html">The Team</a></li>
-						</ul>
-					</li>
-					<li><a href="partners.html">Our Partners</a></li>
-					<li><a href="events.html">Events</a></li>
-					<li><a href="join.html">Join The Team</a></li>
-				</ul>
-				<a href="#" class="close">Close</a>
-			</div>
-		</nav>
+		<div id="header-container"></div>
+		<script src="assets/js/header-loader.js"></script>
 
 		<!-- Wrapper -->
 		<section id="wrapper">
@@ -305,17 +275,8 @@
 			</section>
 		</section>
 		<!-- Footer -->
-		<section id="footer">
-			<iframe src="./shared/footer.html" width="100%" frameborder="0" scrolling="no" id="footerFrame"></iframe>
-		</section>
-		<script>
-			// Dynamisk højde: Forudsætter at /footer.html sender sin højde via postMessage
-			window.addEventListener('message', function (event) {
-				if (event.data && event.data.footerHeight) {
-					document.getElementById('footerFrame').style.height = event.data.footerHeight + 'px';
-				}
-			}, false);
-		</script>
+		<div id="footer-container"></div>
+		<script type="module" src="assets/js/footer-loader.js"></script>
 	</div>
 
 	<!-- Scripts -->
@@ -325,23 +286,6 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
-	<script>
-		document.addEventListener('DOMContentLoaded', function () {
-			var toggles = document.querySelectorAll('#menu .submenu-toggle');
-
-			toggles.forEach(function (toggle) {
-				toggle.addEventListener('click', function (e) {
-					e.preventDefault();
-
-					var li = toggle.closest('.has-submenu');
-					var isOpen = li.classList.toggle('open');
-
-					// Tilgængelighed
-					toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-				});
-			});
-		});
-	</script>
 </body>
 
 </html>
