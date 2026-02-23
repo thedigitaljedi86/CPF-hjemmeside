@@ -56,6 +56,10 @@
 									<label for="name">Full name</label>
 									<input type="text" name="name" id="name" value="" />
 								</div>
+									<div class="col-6 col-12-xsmall">
+									<label for="email">Email</label>
+									<input type="email" name="email" id="email" value="" />
+								</div>
 								<div class="col-12">
 									<label for="study">Study programme</label>
 									<select name="study" id="study">
@@ -177,14 +181,6 @@
 										</option>
 									</select>
 								</div>
-								<div class="col-6 col-12-xsmall">
-									<label for="email">Email</label>
-									<input type="email" name="email" id="email" value="" />
-								</div>
-								<div class="col-6 col-12-xsmall">
-									<label for="phone">Phone number</label>
-									<input type="text" name="phone" id="phone" value="" placeholder="+45 12 34 56 78" />
-								</div>
 								<div class="col-12">
 									<label for="message">Message</label>
 									<textarea name="message" id="message" rows="6"></textarea>
@@ -233,13 +229,11 @@
 			const name = document.getElementById("name").value;
 			const title = document.getElementById("study").value;
 			const email = document.getElementById("email").value;
-			const phone = document.getElementById("phone").value;
 			const message = document.getElementById("message").value;
 
 			emailjs.send("service_3k7fiqq", "template_r51m0vt", {
 				name: name,
 				email: email,
-				phone: phone,
 				title: title,
 				message: message,
 			}).then(
@@ -258,5 +252,4 @@
 		});
 	</script>
 </body>
-
 </html>
