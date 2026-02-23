@@ -29,64 +29,23 @@
 		<section id="wrapper">
 			<header class="what-header">
 				<div class="inner">
-					<h2>What is CBS Personal Finance?</h2>
-					<p>CBS Personal Finance is a student-driven organization at Copenhagen Business School that
-						seeks to empower students with knowledge about personal finance, private savings, and
-						private investments
-					</p>
+					<h2 id="header-headline"></h2>
+					<p id="header-text"></p>
 				</div>
 			</header>
 			<section id="one" class="wrapper spotlight style2">
 				<div class="inner">
-					<a href="#" class="image"><img src="images/what_kvadrat.jpg" alt="" /></a>
+					<a href="#" class="image"><img id="what-image" src="" alt="" /></a>
 					<div class="content">
-						<h2 class="major">What we do</h2>
-						<p>
-							We create events, workshops, and talks that connect students with industry professionals
-							and real-world perspectives on personal finance. </p>
-						<p>
-							By bringing together students and professionals, we turn financial concepts into real, actionable knowledge that empowers
-							students to feel confident in making smart financial decisions.
-						</p> 
-						<p>
-							Our goal is to make finance
-							approachable, relevant, and useful for everyday decision-making.
-						</p>
+						<h2 class="major" id="what-headline"></h2>
+						<p id="what-text"></p>
 					</div>
 				</div>
 			</section>
 			<section id="two" class="wrapper alt style3">
 				<div class="inner">
 					<h2 class="major">Our values</h2>
-					<section class="features">
-						<article>
-							<a href="#" class="image fit"><img src="images/all/Sofie_DSC_0092.JPG" alt="" /></a>
-							<h3 class="major">Community</h3>
-							<p>We believe in the power of community. At Personal Finance, we support each other, share
-								experiences, and create a safe space where everyone can grow, both financially and
-								personally.</p>
-						</article>
-						<article>
-							<a href="#" class="image fit"><img src="images/all/Sofie_DSC_0038.JPG" alt="" /></a>
-							<h3 class="major">Learning</h3>
-							<p>Knowledge is the path to freedom. We’re curious, engaged, and committed to
-								learning together. Through workshops, open dialogue, and shared insights, we deepen our
-								understanding of personal finance.</p>
-						</article>
-						<article>
-							<a href="#" class="image fit"><img src="images/accountability.jpg" alt="" /></a>
-							<h3 class="major">Accountability</h3>
-							<p>We hold each other accountable with care and respect. By setting goals and following up
-								together, real change becomes possible and progress becomes visible.</p>
-						</article>
-						<article>
-							<a href="#" class="image fit"><img src="images/learning.jpg" alt="" /></a>
-							<h3 class="major">Inclusive</h3>
-							<p>Everyone is welcome. No matter your background, financial situation, or level of
-								experience, there's a place for you at Personal Finance. We value diversity and believe
-								every voice makes us stronger.</p>
-						</article>
-					</section>
+					<section id="our-values-features" class="features"></section>
 				</div>
 			</section>
 		</section>
@@ -103,7 +62,55 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+<script type="module">
+		import { getEntries, asHttpsUrl, createFeature } from "./assets/js/contentfull.js";
 
+		const aboutUs = await getEntries('aboutUs');
+		// Eksempel: hent en bestemt entry på ID
+		insertHeaderContent(aboutUs);
+		insertWhatWeDoContent(aboutUs);
+		insertOurValuesContent(aboutUs);
+
+		function insertHeaderContent(aboutUs) {
+			const header = aboutUs.get("1hs9LCeMkGFBAuyyPYn0yz")?.fields;
+
+			document.getElementById("header-headline").innerHTML = header?.headline;
+			document.getElementById("header-text").innerHTML = header?.text;
+		}
+
+		function insertWhatWeDoContent(aboutUs) {
+			const what = aboutUs.get("6zprEOgTUkPtkzDdnqYS2f")?.fields;
+
+			document.getElementById("what-headline").innerHTML = what?.headline;
+			document.getElementById("what-text").innerHTML = what?.text?.content[0]?.content[0]?.value;
+
+			document.getElementById("what-image").setAttribute("src", asHttpsUrl(what?.image.fields.file.url));
+		}
+
+		function insertOurValuesContent(aboutUs) {
+			const ourValues = aboutUs.get("75XRff8tQXZiQa2A2WYW1w")?.fields?.features;
+			const container = document.getElementById("our-values-features");
+
+			ourValues?.forEach(value => {
+				container.appendChild(createFeature(value));
+			});
+		}
+
+		function formatDate(dateStr) {
+			const date = new Date(dateStr);
+			const tz = 'Europe/Copenhagen';
+			const day = parseInt(date.toLocaleString('en-GB', { day: 'numeric', timeZone: tz }));
+			const month = date.toLocaleString('en-GB', { month: 'long', timeZone: tz });
+			const year = date.toLocaleString('en-GB', { year: 'numeric', timeZone: tz });
+			const suffix = day === 1 || day === 21 || day === 31 ? 'st'
+				: day === 2 || day === 22 ? 'nd'
+					: day === 3 || day === 23 ? 'rd'
+						: 'th';
+			return `${day}${suffix} of ${month} ${year}`;
+		}
+
+
+	</script>
 </body>
 
 </html>

@@ -30,30 +30,31 @@
 		<section id="wrapper">
 			<header class="events-header">
 				<div class="inner">
-					<h2>Events</h2>
-					<p>Find information about our upcoming and previous signature events organized in collaboration with
-						our partners</p>
+					<h2 id="header-headline"></h2>
+					<p id="header-text"></p>
 				</div>
 			</header>
 
 			<!-- Event -->
-			<section id="one" class="wrapper spotlight style1">
+			<section id="upcoming-event" class="wrapper spotlight style1" style="display: none !important;">
 				<div class="inner">
-					<a href="#" class="image"><img src="images/DSC_0099_kvadratisk.jpg" alt="" /></a>
+					<a href="#" class="image"><img id="upcoming-event-image" src="" alt="" /></a>
 					<div class="content">
-						<h2 class="major">Navigating the Investment Landscape of 2026 with Saxo Bank</h2>
+						<h2 class="major" id="upcoming-event-headline"></h2>
 						<div class="event-details">
 							<script src="https://www.universe.com/embed2.js" data-state=""></script>
-							<a href="https://www.universe.com/events/investment-event-with-saxo-bank-tickets-RPX7WV?buttonColor=#2c375f&buttonText=Buy tickets"
-								class="special">Buy tickets</a>
+							<a id="upcoming-event-button" href="" class="special"></a>
 							<p class="event">
-								<i class="icon solid fa-calendar"></i> 17th of March 2026
+								<i class="icon solid fa-calendar"></i>
+								<span id="upcoming-event-date"></span>
 							</p>
 							<p class="event">
-								<i class="icon solid fa-map-marker-alt"></i> Solbjerg Pl. 3, 2000 Frederiksberg
+								<i class="icon solid fa-map-marker-alt"></i>
+								<span id="upcoming-event-location"></span>
 							</p>
 							<p class="event">
-								<i class="icon solid fa-credit-card"></i> Free
+								<i class="icon solid fa-credit-card"></i>
+								<span id="upcoming-event-price"></span>
 							</p>
 						</div>
 					</div>
@@ -61,43 +62,21 @@
 			</section>
 
 			<!-- No events placeholder -->
-			<!-- <section id="one" class="wrapper spotlight style1">
+			<section id="no-upcoming-event" class="wrapper spotlight style1" style="display: none !important;">
 				<div class="inner">
-					<a href="#" class="image"><img src="images/DSC_0099_kvadratisk.jpg" alt="" /></a>
+					<a href="#" class="image"><img id="no-upcoming-event-image" src="" alt="" /></a>
 					<div class="content">
-						<h2 class="major">Upcoming events</h2>
-						<p>We do not have any events planned right now - but please subscribe to our newsletter below so you
-						will be the first to know.</p>
-						<a href="newsletter.html" class="special">Sign up for our newsletter</a>
+						<h2 class="major" id="no-upcoming-event-headline"></h2>
+						<p id="no-upcoming-event-text"></p>
+						<a id="no-upcoming-event-button" href="" class="special"></a>
 					</div>
 				</div>
-			</section> -->
+			</section>
 
 			<section id="one" class="wrapper alt style3">
 				<div class="inner">
 					<h2 class="major">Previous events</h2>
-					<section class="features">
-						<article>
-							<img class="image fit" style="object-fit: cover;" src="images/endavu.jpg" alt="" />
-							<h3 class="major">Endavu</h3>
-							<p>Investment workshop with Endavu</p>
-						</article>
-						<article>
-							<img class="image fit" src="images/marcus.jpg" alt="" />
-							<h3 class="major">Marcus Ingvartsen</h3>
-							<p>Investing with Marcus Ingvartsen</p>
-						</article>
-						<article>
-							<img class="image fit" src="images/sarah.jpg" alt="" />
-							<h3 class="major">Sarah Ophelia Møss</h3>
-							<p>Personal Finance & Investment with Sarah Ophelia Møss</p>
-						</article>
-						<article>
-							<img class="image fit" src="images/financial_experts.jpg" alt="" />
-							<h3 class="major">Financial Experts</h3>
-							<p>Master Your Money with Financial Experts</p>
-						</article>
-					</section>
+					<section id="previous-events-features" class="features"></section>
 				</div>
 			</section>
 		</section>
@@ -115,6 +94,76 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+
+	<script type="module">
+		import { getEntries, asHttpsUrl, createFeature } from "./assets/js/contentfull.js";
+
+		const events = await getEntries('events');
+		// Eksempel: hent en bestemt entry på ID
+		insertHeaderContent(events);
+		insertUpcomingEventContent(events);
+		insertPreviousEventsContent(events);
+
+		function insertHeaderContent(events) {
+			const header = events.get("DT3SMJHW2N5Bzb7vj8BlX")?.fields;
+
+			document.getElementById("header-headline").innerHTML = header?.headline;
+			document.getElementById("header-text").innerHTML = header?.text;
+		}
+
+		function insertUpcomingEventContent(events) {
+			const upcomingEvent = events.get("WJCeJzB76Y1lhO0w4FH6D")?.fields;
+
+			if (upcomingEvent?.display) {
+				document.getElementById("upcoming-event").style.display = "block";
+				document.getElementById("upcoming-event-headline").innerHTML = upcomingEvent?.headline;
+				document.getElementById("upcoming-event-image").setAttribute("src", asHttpsUrl(upcomingEvent?.image.fields.file.url));
+				document.getElementById("upcoming-event-button").setAttribute("href", upcomingEvent?.link + "?buttonColor=#2c375f&buttonText=Buy tickets");
+				document.getElementById("upcoming-event-button").innerHTML = upcomingEvent?.button;
+				document.getElementById("upcoming-event-date").innerHTML = formatDate(upcomingEvent?.date);
+				document.getElementById("upcoming-event-location").innerHTML = upcomingEvent?.location;
+				document.getElementById("upcoming-event-price").innerHTML = upcomingEvent?.price;
+			} else {
+				document.getElementById("upcoming-event").style.display = "none";
+				insertNoUpcomingEventContent(events);
+			}
+		}
+
+		function insertNoUpcomingEventContent(events) {
+			const upcomingEvent = events.get("3mF3hQ6MmW3ddCeqSJYWKe")?.fields;
+
+			document.getElementById("no-upcoming-event").style.display = "block";
+
+			document.getElementById("no-upcoming-event-headline").innerHTML = upcomingEvent?.headline;
+			document.getElementById("no-upcoming-event-text").innerHTML = upcomingEvent?.text?.content[0]?.content[0]?.value;
+			document.getElementById("no-upcoming-event-button").innerHTML = upcomingEvent?.button;
+			document.getElementById("no-upcoming-event-button").setAttribute("href", upcomingEvent?.link);
+			document.getElementById("no-upcoming-event-image").setAttribute("src", asHttpsUrl(upcomingEvent?.image.fields.file.url));
+		}
+
+		function insertPreviousEventsContent(events) {
+			const previousEvents = events.get("1czSi6xmB519wOVp3jR9TR")?.fields?.features;
+			const container = document.getElementById("previous-events-features");
+
+			previousEvents?.forEach(event => {
+				container.appendChild(createFeature(event));
+			});
+		}
+
+		function formatDate(dateStr) {
+			const date = new Date(dateStr);
+			const tz = 'Europe/Copenhagen';
+			const day = parseInt(date.toLocaleString('en-GB', { day: 'numeric', timeZone: tz }));
+			const month = date.toLocaleString('en-GB', { month: 'long', timeZone: tz });
+			const year = date.toLocaleString('en-GB', { year: 'numeric', timeZone: tz });
+			const suffix = day === 1 || day === 21 || day === 31 ? 'st'
+				: day === 2 || day === 22 ? 'nd'
+					: day === 3 || day === 23 ? 'rd'
+						: 'th';
+			return `${day}${suffix} of ${month} ${year}`;
+		}
+	</script>
+
 </body>
 
 </html>
