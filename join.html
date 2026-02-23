@@ -179,7 +179,8 @@
 								</div>
 								<div class="col-6 col-12-xsmall">
 									<label for="email">Email</label>
-									<input type="email" name="email" id="email" value="" />
+									<input type="email" name="email" id="email" value="" required />
+									<span id="email-error" style="color:#ff6b6b;font-size:0.85em;display:none;">Please enter a valid email address.</span>
 								</div>
 								<div class="col-6 col-12-xsmall">
 									<label for="phone">Phone number</label>
@@ -227,6 +228,17 @@
 	<script>
 		document.getElementById("emailForm").addEventListener("submit", function (e) {
 			e.preventDefault();
+
+			const emailInput = document.getElementById("email");
+			const emailError = document.getElementById("email-error");
+			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+			if (!emailRegex.test(emailInput.value.trim())) {
+				emailError.style.display = "inline";
+				emailInput.focus();
+				return;
+			}
+			emailError.style.display = "none";
+
 			document.getElementById("emailForm").style.display = "none"
 			document.getElementById("spinner").style.display = "inline-block"
 
