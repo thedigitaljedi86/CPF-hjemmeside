@@ -56,9 +56,11 @@
 									<label for="name">Full name</label>
 									<input type="text" name="name" id="name" value="" />
 								</div>
-									<div class="col-6 col-12-xsmall">
+								<div class="col-6 col-12-xsmall">
 									<label for="email">Email</label>
-									<input type="email" name="email" id="email" value="" />
+									<input type="email" name="email" id="email" value="" required />
+									<span id="email-error" style="color:#ff6b6b;font-size:0.85em;display:none;">Please
+										enter a valid email address.</span>
 								</div>
 								<div class="col-12">
 									<label for="study">Study programme</label>
@@ -181,12 +183,6 @@
 										</option>
 									</select>
 								</div>
-								<div class="col-6 col-12-xsmall">
-									<label for="email">Email</label>
-									<input type="email" name="email" id="email" value="" required />
-									<span id="email-error" style="color:#ff6b6b;font-size:0.85em;display:none;">Please enter a valid email address.</span>
-								</div>
-
 								<div class="col-12">
 									<label for="message">Message</label>
 									<textarea name="message" id="message" rows="6"></textarea>
@@ -269,4 +265,5 @@
 		});
 	</script>
 </body>
+
 </html>
