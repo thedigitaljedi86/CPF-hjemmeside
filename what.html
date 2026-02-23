@@ -44,7 +44,7 @@
 			</section>
 			<section id="two" class="wrapper alt style3">
 				<div class="inner">
-					<h2 class="major">Our values</h2>
+					<h2 class="major" id="our-values-headline"></h2>
 					<section id="our-values-features" class="features"></section>
 				</div>
 			</section>
@@ -88,10 +88,12 @@
 		}
 
 		function insertOurValuesContent(aboutUs) {
-			const ourValues = aboutUs.get("75XRff8tQXZiQa2A2WYW1w")?.fields?.features;
+			const ourValues = aboutUs.get("75XRff8tQXZiQa2A2WYW1w")?.fields;
 			const container = document.getElementById("our-values-features");
 
-			ourValues?.forEach(value => {
+			document.getElementById("our-values-headline").innerHTML = ourValues?.name;
+
+			ourValues?.features?.forEach(value => {
 				container.appendChild(createFeature(value));
 			});
 		}
