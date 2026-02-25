@@ -30,20 +30,16 @@
 		<section id="wrapper">
 			<header class="join-header">
 				<div class="inner">
-					<h2>Join The Team</h2>
-					<p>Interested in joining CBS Personal Finance? We are always happy to hear from motivated
-						students who want to contribute to our mission and be part of a driven, international team.
-					</p>
+					<h2 id="header-headline"></h2>
+					<p id="header-text"></p>
 				</div>
 			</header>
 
 			<!-- Content -->
-
 			<section id="two" class="wrapper style1">
 				<div class="inner">
-					<h2 class="major">Become a part of our team</h2>
-					<p>If any of the teams or the work they do resonates with you, we’d love to hear from you.
-						</br>Please send us a short introduction about who you are and why you’d like to join.</p>
+					<h2 class="major" id="form-headline"></h2>
+					<p id="form-text"></p>
 					<section>
 						<div id="spinner" class="spinner">
 							<div class="circle-loader">
@@ -53,150 +49,32 @@
 						<form method="post" id="emailForm">
 							<div class="row gtr-uniform">
 								<div class="col-6 col-12-xsmall">
-									<label for="name">Full name</label>
+									<label for="name" id="form-name-label"></label>
 									<input type="text" name="name" id="name" value="" />
 								</div>
 								<div class="col-6 col-12-xsmall">
-									<label for="email">Email</label>
+									<label for="email" id="form-email-label"></label>
 									<input type="email" name="email" id="email" value="" required />
-									<span id="email-error" style="color:#ff6b6b;font-size:0.85em;display:none;">Please
-										enter a valid email address.</span>
+									<span id="form-email-error" style="color:#ff6b6b;font-size:0.85em;display:none;"></span>
 								</div>
 								<div class="col-12">
-									<label for="study">Study programme</label>
-									<select name="study" id="study">
-										<option value="">-</option>
-										<option value="BSc in Business Administration and Digital Management">BSc in
-											Business Administration and Digital Management</option>
-										<option value="BSc in Business Administration and Service Management">BSc in
-											Business Administration and Service Management</option>
-										<option value="BSc in Business Administration and Sociology">BSc in Business
-											Administration and Sociology</option>
-										<option value="BSc in International Business">BSc in International Business
-										</option>
-										<option value="BSc in International Business and Politics">BSc in International
-											Business and Politics</option>
-										<option value="BSc in International Shipping and Trade">BSc in International
-											Shipping and Trade</option>
-										<option value="HA almen erhvervsøkonomi">HA almen erhvervsøkonomi</option>
-										<option value="About HA i markeds- og kulturanalyse">HA i markeds- og
-											kulturanalyse</option>
-										<option value="About HA i projektledelse">HA i projektledelse</option>
-										<option value="HA(fil.) - erhvervsøkonomi og filosofi">HA(fil.) -
-											erhvervsøkonomi og filosofi</option>
-										<option value="HA(it.) - erhvervsøkonomi og informationsteknologi">HA(it.) -
-											erhvervsøkonomi og informationsteknologi</option>
-										<option value="HA(jur.) - erhvervsøkonomi og erhvervsjura">HA(jur.) -
-											erhvervsøkonomi og erhvervsjura</option>
-										<option value="HA(kom.) - erhvervsøkonomi og virksomhedskommunikation">HA(kom.)
-											- erhvervsøkonomi og virksomhedskommunikation</option>
-										<option value="HA(mat.) - erhvervsøkonomi og matematik">HA(mat.) -
-											erhvervsøkonomi og matematik</option>
-										<option value="HA(psyk.) - erhvervsøkonomi og psykologi">HA(psyk.) -
-											erhvervsøkonomi og psykologi</option>
-										<option value="cand-merc-finansiering-regnskab">Cand.merc. i finansiering og
-											regnskab</option>
-										<option value="cand-merc-oekonomisk-markedsfoering">Cand.merc. i økonomisk
-											markedsføring</option>
-										<option value="cand-merc-jur">Cand.merc.(jur.) – erhvervsøkonomi og erhvervsjura
-										</option>
-										<option value="cand-merc-kom">Cand.merc.(kom.) – erhvervsøkonomi og
-											virksomhedskommunikation</option>
-										<option value="cand-merc-mat">Cand.merc.(mat.) – erhvervsøkonomi og matematik
-										</option>
-										<option value="cand-merc-psyk">Cand.merc.(psyk.) – erhvervsøkonomi og psykologi
-										</option>
-										<option value="cand-merc-aud">Cand.merc.aud. – revision</option>
-
-										<!-- Cand.soc -->
-										<option value="cand-soc-hrm">Cand.soc. i Human Resource Management</option>
-
-										<!-- MSc programmes -->
-										<option value="msc-bioentrepreneurship">MSc in Business Administration and
-											Bioentrepreneurship</option>
-										<option value="msc-data-science">MSc in Business Administration and Data Science
-										</option>
-										<option value="msc-digital-business">MSc in Business Administration and Digital
-											Business</option>
-										<option value="msc-information-systems">MSc in Business Administration and
-											Information Systems</option>
-										<option value="msc-innovation-health-care">MSc in Business Administration and
-											Innovation in Health Care</option>
-										<option value="msc-business-language-culture-bads">MSc in Business, Language and
-											Culture – Business and Development Studies</option>
-
-										<!-- Economics & Business Administration -->
-										<option value="msc-eba-accounting-strategy-control">
-											MSc in Economics and Business Administration in Accounting, Strategy and
-											Control
-										</option>
-										<option value="msc-eba-finance-investments">
-											MSc in Economics and Business Administration in Finance and Investments
-										</option>
-										<option value="msc-eba-finance-strategic-management">
-											MSc in Economics and Business Administration in Finance and Strategic
-											Management
-										</option>
-										<option value="msc-eba-general-management-analytics">
-											MSc in Economics and Business Administration in General Management and
-											Analytics
-										</option>
-										<option value="msc-eba-innovation-business-development">
-											MSc in Economics and Business Administration in Management of Innovation and
-											Business Development
-										</option>
-										<option value="msc-eba-people-business-development">
-											MSc in Economics and Business Administration in People and Business
-											Development
-										</option>
-										<option value="msc-eba-sales-management">
-											MSc in Economics and Business Administration in Sales Management
-										</option>
-										<option value="msc-eba-strategy-organisation-leadership">
-											MSc in Economics and Business Administration in Strategy, Organisation and
-											Leadership
-										</option>
-										<option value="msc-eba-supply-chain-management">
-											MSc in Economics and Business Administration in Supply Chain Management
-										</option>
-
-										<!-- Economics & Finance -->
-										<option value="msc-economics-finance-advanced">
-											MSc in Economics and Finance – Advanced Economics and Finance
-										</option>
-										<option value="msc-economics-finance-applied">
-											MSc in Economics and Finance – Applied Economics and Finance
-										</option>
-
-										<!-- Other MSc / MSSc -->
-										<option value="msc-international-business-politics">
-											MSc in International Business and Politics
-										</option>
-										<option value="mssc-organisational-innovation-entrepreneurship">
-											MSSc in Organisational Innovation and Entrepreneurship
-										</option>
-										<option value="mssc-public-management-social-development">
-											MSSc in Public Management and Social Development
-										</option>
-										<option value="mssc-strategic-design-entrepreneurship">
-											MSSc in Strategic Design and Entrepreneurship
-										</option>
+									<label for="study" id="form-study-label"></label>
+									<select name="study" id="form-study">
 									</select>
 								</div>
 								<div class="col-12">
-									<label for="message">Message</label>
+									<label for="message" id="form-message-label"></label>
 									<textarea name="message" id="message" rows="6"></textarea>
 								</div>
 								<div class="col-12">
 									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="primary" /></li>
-										<li><input class="reset" type="reset" value="Reset" /></li>
+										<li><input id="form-submit" type="submit" value="Send Message" class="primary" /></li>
+										<li><input id="form-reset" class="reset" type="reset" value="Reset" /></li>
 									</ul>
 								</div>
 							</div>
 						</form>
 					</section>
-
 				</div>
 			</section>
 		</section>
@@ -215,6 +93,52 @@
 	<script src="assets/js/main.js"></script>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
 	</script>
+
+	<script type="module">
+		import { getEntries, asHttpsUrl } from "./assets/js/contentfull.js";
+
+		const joinTheTeam = await getEntries('joinTheTeam');
+
+		// Eksempel: hent en bestemt entry på ID
+		insertHeaderContent(joinTheTeam);
+		insertFormContent(joinTheTeam);
+		
+		function insertHeaderContent(joinTheTeam) {
+			const header = joinTheTeam.get("6lMctj5aGOm3R9EyflX4Hx")?.fields;
+			
+			document.getElementById("header-headline").innerHTML = header?.headline;
+			document.getElementById("header-text").innerHTML = header?.text;
+		}
+
+		function insertFormContent(joinTheTeam) {
+			const form = joinTheTeam.get("75jzVxscKZeRKYIR8hxXYR")?.fields;
+
+			// Element references
+			document.getElementById("form-headline").innerHTML = form?.headline;
+			document.getElementById("form-text").innerHTML = form?.text;
+			document.getElementById("form-name-label").innerHTML = form?.nameLabel;
+			document.getElementById("form-email-label").innerHTML = form?.emailLabel;
+			document.getElementById("form-email-error").innerHTML = form?.emailError;
+			document.getElementById("form-study-label").innerHTML = form?.studyLabel;
+			document.getElementById("form-message-label").innerHTML = form?.messageLabel;
+			document.getElementById("form-submit").setAttribute("value", form?.submit);
+			document.getElementById("form-reset").setAttribute("value", form?.reset);
+		
+			// Populate study options
+			form?.studyOptions.forEach(option => {
+				document.getElementById("form-study").appendChild(createOptionElement(option));
+			});
+		}
+
+		function createOptionElement(option) {
+			const optionElement = document.createElement("option");
+			optionElement.setAttribute("value", option);
+			optionElement.innerHTML = option;
+			return optionElement;
+		}
+
+	</script>
+
 	<script type="text/javascript">
 		(function () {
 			emailjs.init({
@@ -227,7 +151,7 @@
 			e.preventDefault();
 
 			const emailInput = document.getElementById("email");
-			const emailError = document.getElementById("email-error");
+			const emailError = document.getElementById("form-email-error");
 			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 			if (!emailRegex.test(emailInput.value.trim())) {
 				emailError.style.display = "inline";
@@ -240,7 +164,7 @@
 			document.getElementById("spinner").style.display = "inline-block"
 
 			const name = document.getElementById("name").value;
-			const title = document.getElementById("study").value;
+			const title = document.getElementById("form-study").value;
 			const email = document.getElementById("email").value;
 			const message = document.getElementById("message").value;
 
@@ -253,10 +177,6 @@
 				function () {
 					$(".circle-loader").toggleClass("load-complete");
 					$(".checkmark").toggle();
-					// setTimeout(function () {
-					// 	window.location.href = "/";
-					// }, 1200)
-
 				},
 				function (error) {
 					alert("Noget gik galt: " + JSON.stringify(error));

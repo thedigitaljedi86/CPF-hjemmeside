@@ -29,8 +29,8 @@
 		<section id="wrapper">
 			<header class="join-header">
 				<div class="inner">
-					<h2>Sign up for our newsletter</h2>
-					<p>Stay in the loop and make sure you are the first to know when our next event is</p>
+					<h2 id="header-headline"></h2>
+					<p id="header-text"></p>
 				</div>
 			</header>
 
@@ -43,7 +43,6 @@
 						<div style="padding-bottom: 3rem;" class="hs-form-frame" data-region="na1" data-form-id="9aa4b043-c518-45bd-a0cf-5cbea204ccbe"
 							data-portal-id="48129532"></div>
 					</section>
-
 				</div>
 			</section>
 		</section>
@@ -60,6 +59,21 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+		<script type="module">
+		import { getEntries, asHttpsUrl } from "./assets/js/contentfull.js";
+
+		const newsletter = await getEntries('newsletter');
+
+		// Eksempel: hent en bestemt entry på ID
+		insertHeaderContent(newsletter);
+		
+		function insertHeaderContent(newsletter) {
+			const header = newsletter.get("cExiRIZID93lZjij9TQUh")?.fields;
+			
+			document.getElementById("header-headline").innerHTML = header?.headline;
+			document.getElementById("header-text").innerHTML = header?.text;
+		}
+	</script>
 </body>
 
 </html>
