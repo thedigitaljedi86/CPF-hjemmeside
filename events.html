@@ -75,7 +75,7 @@
 
 			<section id="one" class="wrapper alt style3">
 				<div class="inner">
-					<h2 class="major">Previous events</h2>
+					<h2 class="major" id="previous-events-headline"></h2>
 					<section id="previous-events-features" class="features"></section>
 				</div>
 			</section>
@@ -148,10 +148,13 @@
 		}
 
 		function insertPreviousEventsContent(events) {
-			const previousEvents = events.get("1czSi6xmB519wOVp3jR9TR")?.fields?.features;
+			const previousEvents = events.get("1czSi6xmB519wOVp3jR9TR")?.fields;
 			const container = document.getElementById("previous-events-features");
 
-			previousEvents?.forEach(event => {
+			document.getElementById("previous-events-headline").innerHTML = previousEvents?.name;
+
+
+			previousEvents?.features.forEach(event => {
 				container.appendChild(createFeature(event));
 			});
 		}
