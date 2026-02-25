@@ -88,6 +88,7 @@
 	<script src="assets/js/main.js"></script>
 	<script type="module">
 		import { getEntries, asHttpsUrl } from "./assets/js/contentfull.js";
+		import { hideLoader } from "./assets/js/loader.js";
 
 		const frontpage = await getEntries('frontpage');
 
@@ -95,6 +96,7 @@
 		insertHeaderContent(frontpage);
 		insertEventContent(frontpage);
 		insertNewsletterContent(frontpage);
+		hideLoader();
 		
 		function insertHeaderContent(frontpage) {
 			const header = frontpage.get("5suteFBa3Q8g5nX0sLegZS")?.fields;

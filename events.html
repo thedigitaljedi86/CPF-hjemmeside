@@ -97,12 +97,14 @@
 
 	<script type="module">
 		import { getEntries, asHttpsUrl, createFeature } from "./assets/js/contentfull.js";
+		import { hideLoader } from "./assets/js/loader.js";
 
 		const events = await getEntries('events');
 		// Eksempel: hent en bestemt entry på ID
 		insertHeaderContent(events);
 		insertUpcomingEventContent(events);
 		insertPreviousEventsContent(events);
+		hideLoader();
 
 		function insertHeaderContent(events) {
 			const header = events.get("DT3SMJHW2N5Bzb7vj8BlX")?.fields;

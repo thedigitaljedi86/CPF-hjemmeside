@@ -96,12 +96,14 @@
 
 	<script type="module">
 		import { getEntries, asHttpsUrl } from "./assets/js/contentfull.js";
+		import { hideLoader } from "./assets/js/loader.js";
 
 		const joinTheTeam = await getEntries('joinTheTeam');
 
 		// Eksempel: hent en bestemt entry på ID
 		insertHeaderContent(joinTheTeam);
 		insertFormContent(joinTheTeam);
+		hideLoader();
 		
 		function insertHeaderContent(joinTheTeam) {
 			const header = joinTheTeam.get("6lMctj5aGOm3R9EyflX4Hx")?.fields;

@@ -68,6 +68,7 @@
 	<script src="assets/js/main.js"></script>
 	<script type="module">
 		import { getEntries, asHttpsUrl } from "./assets/js/contentfull.js";
+		import { hideLoader } from "./assets/js/loader.js";
 
 		const partners = await getEntries('partners');
 
@@ -75,6 +76,7 @@
 		insertPersonalFinanceContent(partners);
 		insertPrivateInvestmentsContent(partners);
 		insertHeaderContent(partners);
+		hideLoader();
 		
 		function insertHeaderContent(partners) {
 			const header = partners.get("5n2NTceFpuMkcwyZ4AtDwc")?.fields;

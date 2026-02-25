@@ -65,12 +65,14 @@
 	<script src="assets/js/main.js"></script>
 	<script type="module">
 		import { getEntries, asHttpsUrl, createFeature } from "./assets/js/contentfull.js";
+		import { hideLoader } from "./assets/js/loader.js";
 
 		const aboutUs = await getEntries('aboutUs');
 		// Eksempel: hent en bestemt entry på ID
 		insertHeaderContent(aboutUs);
 		insertWhatWeDoContent(aboutUs);
 		insertOurValuesContent(aboutUs);
+		hideLoader();
 
 		function insertHeaderContent(aboutUs) {
 			const header = aboutUs.get("1hs9LCeMkGFBAuyyPYn0yz")?.fields;

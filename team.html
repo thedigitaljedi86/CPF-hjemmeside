@@ -70,6 +70,7 @@
 	<script src="assets/js/main.js"></script>
 	<script type="module">
 		import { getSortedEntriesByTag, asHttpsUrl, getEntries } from "./assets/js/contentfull.js";
+		import { hideLoader } from "./assets/js/loader.js";
 
 		const team = await getEntries('team');
 
@@ -167,6 +168,7 @@
 		const n = members.length;
 		const join = document.getElementById("join");
 		join.className = `wrapper${n % 2 !== 0 ? ' alt' : ''} spotlight ${styles[n % styles.length]}`;
+		hideLoader();
 	</script>
 </body>
 
