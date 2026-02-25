@@ -40,6 +40,19 @@ export async function getEntries(tag = "") {
   return createContentfulIndex(res);
 }
 
+// Hent alle entries af en given content type, sorteret efter oprettelsesdato
+export async function getSortedEntriesByTag(tag = "", order = "sys.createdAt" ) {
+  let res = await client.getEntries({
+    content_type: "member",
+    order: order,
+    "metadata.tags.sys.id[all]": tag,
+  });
+
+  console.log("Contentful response:", res);
+
+  return res.items;
+}
+
 export function createFeature(event) {
   const article = document.createElement("article");
 
