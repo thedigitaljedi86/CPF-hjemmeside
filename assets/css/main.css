@@ -3209,21 +3209,6 @@ body.is-preload #banner p {
   line-height: 2;
   text-transform: uppercase;
 }
-#wrapper .team-header {
-  background-image: linear-gradient(to top, rgba(44, 55, 95, 0.8), rgba(44, 55, 95, 0.8)), url("../../images/about/aboutus_header.jpg");
-}
-#wrapper .join-header {
-  background-image: linear-gradient(to top, rgba(44, 55, 95, 0.8), rgba(44, 55, 95, 0.8)), url("../../images/join_header.jpg");
-}
-#wrapper .partners-header {
-  background-image: linear-gradient(to top, rgba(44, 55, 95, 0.8), rgba(44, 55, 95, 0.8)), url("../../images/all/Sofie_DSC_0038.JPG");
-}
-#wrapper .events-header {
-  background-image: linear-gradient(to top, rgba(44, 55, 95, 0.8), rgba(44, 55, 95, 0.8)), url("../../images/all/Sofie_DSC_0092.JPG");
-}
-#wrapper .what-header {
-  background-image: linear-gradient(to top, rgba(44, 55, 95, 0.8), rgba(44, 55, 95, 0.8)), url("../../images/all/Sofie_TOG06237 (3).jpg");
-}
 @media screen and (max-width: 980px) {
   #wrapper > header {
     padding: 11em 3em 7.375em 3em;

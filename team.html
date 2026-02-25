@@ -28,7 +28,7 @@
 
 		<!-- Wrapper -->
 		<section id="wrapper">
-			<header class="team-header">
+			<header class="team-header" id="team-header">
 				<div class="inner">
 					<h2 id="header-headline"></h2>
 					<p id="header-text"></p>
@@ -83,6 +83,10 @@
 
 			document.getElementById("header-headline").innerHTML = header?.headline;
 			document.getElementById("header-text").innerHTML = header?.text;
+
+			const url = asHttpsUrl(header?.image?.fields?.file?.url);
+			document.getElementById("team-header").style.backgroundImage =
+				`linear-gradient(to top, rgba(44, 55, 95, 0.8), rgba(44, 55, 95, 0.8)), url("${url}")`;
 		}
 
 		function insertSubHeaderContent(team) {
