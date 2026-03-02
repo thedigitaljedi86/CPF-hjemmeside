@@ -74,11 +74,13 @@
 
 		const partners = await getEntries('partners');
 
-		// Eksempel: hent en bestemt entry på ID
-		insertPersonalFinanceContent(partners);
-		insertPrivateInvestmentsContent(partners);
-		insertHeaderContent(partners);
-		hideLoader();
+		try {
+			insertPersonalFinanceContent(partners);
+			insertPrivateInvestmentsContent(partners);
+			insertHeaderContent(partners);
+		} finally {
+			hideLoader();
+		}
 		
 		function insertHeaderContent(partners) {
 			const header = partners.get("5n2NTceFpuMkcwyZ4AtDwc")?.fields;

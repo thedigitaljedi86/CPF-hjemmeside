@@ -70,11 +70,14 @@
 		import { hideLoader } from "./assets/js/loader.js";
 
 		const aboutUs = await getEntries('aboutUs');
-		// Eksempel: hent en bestemt entry på ID
-		insertHeaderContent(aboutUs);
-		insertWhatWeDoContent(aboutUs);
-		insertOurValuesContent(aboutUs);
-		hideLoader();
+
+		try {
+			insertHeaderContent(aboutUs);
+			insertWhatWeDoContent(aboutUs);
+			insertOurValuesContent(aboutUs);
+		} finally {
+			hideLoader();
+		}
 
 		function insertHeaderContent(aboutUs) {
 			const header = aboutUs.get("1hs9LCeMkGFBAuyyPYn0yz")?.fields;

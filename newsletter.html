@@ -67,9 +67,11 @@
 
 		const newsletter = await getEntries('newsletter');
 
-		// Eksempel: hent en bestemt entry på ID
-		insertHeaderContent(newsletter);
-		hideLoader();
+		try {
+			insertHeaderContent(newsletter);
+		} finally {
+			hideLoader();
+		}
 		
 		function insertHeaderContent(newsletter) {
 			const header = newsletter.get("cExiRIZID93lZjij9TQUh")?.fields;

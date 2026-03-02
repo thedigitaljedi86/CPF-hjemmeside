@@ -76,10 +76,10 @@
 
 		const team = await getEntries('team');
 
-		// Eksempel: hent en bestemt entry på ID
-		insertHeaderContent(team);
-		insertSubHeaderContent(team);
-		insertJoinContent(team);
+		try {
+			insertHeaderContent(team);
+			insertSubHeaderContent(team);
+			insertJoinContent(team);
 
 		function insertHeaderContent(team) {
 			const header = team.get("1BiDvAbvw5USAeU3GDMrK9")?.fields;
@@ -170,7 +170,9 @@
 		const n = members.length;
 		const join = document.getElementById("join");
 		join.className = `wrapper${n % 2 !== 0 ? ' alt' : ''} spotlight ${styles[n % styles.length]}`;
-		hideLoader();
+		} finally {
+			hideLoader();
+		}
 	</script>
 </body>
 

@@ -102,10 +102,12 @@
 
 		const joinTheTeam = await getEntries('joinTheTeam');
 
-		// Eksempel: hent en bestemt entry på ID
-		insertHeaderContent(joinTheTeam);
-		insertFormContent(joinTheTeam);
-		hideLoader();
+		try {
+			insertHeaderContent(joinTheTeam);
+			insertFormContent(joinTheTeam);
+		} finally {
+			hideLoader();
+		}
 		
 		function insertHeaderContent(joinTheTeam) {
 			const header = joinTheTeam.get("6lMctj5aGOm3R9EyflX4Hx")?.fields;

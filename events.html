@@ -80,6 +80,8 @@
 
 		const upcomingEvents = await getEntriesByContentType('event', 'fields.sortOrder');
 
+		try {
+
 		const styles = ['style1', 'style2'];
 		let insertionPoint = document.getElementById('page-header');
 
@@ -138,6 +140,7 @@
 				a.href = href;
 				a.className = 'special';
 				a.textContent = fields.button;
+				a.target = hasUniverse ? '' : '_blank';
 				details.appendChild(a);
 
 				if (fields.date) {
@@ -182,8 +185,9 @@
 		prevSection.className = `wrapper${prevIndex % 2 !== 0 ? ' alt' : ''} style3`;
 		insertionPoint.insertAdjacentElement('afterend', prevSection);
 		insertPreviousEventsContent(events);
-
-		hideLoader();
+		} finally {
+			hideLoader();
+		}
 
 		function insertHeaderContent(events) {
 			const header = events.get("DT3SMJHW2N5Bzb7vj8BlX")?.fields;

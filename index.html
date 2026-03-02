@@ -94,11 +94,13 @@
 
 		const frontpage = await getEntries('frontpage');
 
-		// Eksempel: hent en bestemt entry på ID
-		insertHeaderContent(frontpage);
-		insertEventContent(frontpage);
-		insertNewsletterContent(frontpage);
-		hideLoader();
+		try {
+			insertHeaderContent(frontpage);
+			insertEventContent(frontpage);
+			insertNewsletterContent(frontpage);
+		} finally {
+			hideLoader();
+		}
 		
 		function insertHeaderContent(frontpage) {
 			const header = frontpage.get("5suteFBa3Q8g5nX0sLegZS")?.fields;
