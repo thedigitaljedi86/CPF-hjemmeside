@@ -35,8 +35,6 @@ export async function getEntries(tag = "") {
     "metadata.tags.sys.id[all]": tag,
   });
 
-  console.log("Contentful response:", res);
-
   return createContentfulIndex(res);
 }
 
@@ -46,8 +44,6 @@ export async function getEntriesByContentType(contentType, order = "sys.createdA
     content_type: contentType,
     order: order,
   });
-
-  console.log("Contentful response:", res);
 
   return res.items;
 }
@@ -59,8 +55,6 @@ export async function getSortedEntriesByTag(tag = "", order = "sys.createdAt" ) 
     order: order,
     "metadata.tags.sys.id[all]": tag,
   });
-
-  console.log("Contentful response:", res);
 
   return res.items;
 }

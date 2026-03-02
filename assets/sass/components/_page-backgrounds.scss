@@ -29,7 +29,7 @@ $page-bg-image-path: '/images';
 // Edit the image paths or colors as needed for each subpage.
 
 body.page-home {
-  @include page-background("#{$page-bg-image-path}/home.jpg", #2c375f, rgba(0,0,0,0.08));
+  @include page-background("", #2c375f, rgba(0,0,0,0.08));
 }
 
 body.page-generic {
