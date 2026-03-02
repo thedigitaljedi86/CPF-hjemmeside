@@ -37,32 +37,6 @@
 				</div>
 			</header>
 
-			<!-- Event -->
-			<section id="upcoming-event" class="wrapper spotlight style1" style="display: none !important;">
-				<div class="inner">
-					<a href="#" class="image"><img id="upcoming-event-image" src="" alt="" /></a>
-					<div class="content">
-						<h2 class="major" id="upcoming-event-headline"></h2>
-						<div class="event-details">
-							<script src="https://www.universe.com/embed2.js" data-state=""></script>
-							<a id="upcoming-event-button" href="" class="special"></a>
-							<p class="event">
-								<i class="icon solid fa-calendar"></i>
-								<span id="upcoming-event-date"></span>
-							</p>
-							<p class="event">
-								<i class="icon solid fa-map-marker-alt"></i>
-								<span id="upcoming-event-location"></span>
-							</p>
-							<p class="event">
-								<i class="icon solid fa-credit-card"></i>
-								<span id="upcoming-event-price"></span>
-							</p>
-						</div>
-					</div>
-				</div>
-			</section>
-
 			<!-- No events placeholder -->
 			<section id="no-upcoming-event" class="wrapper spotlight style1" style="display: none !important;">
 				<div class="inner">
@@ -75,7 +49,7 @@
 				</div>
 			</section>
 
-			<section id="one" class="wrapper alt style3">
+			<section id="one" class="wrapper style3">
 				<div class="inner">
 					<h2 class="major" id="previous-events-headline"></h2>
 					<section id="previous-events-features" class="features"></section>
@@ -98,14 +72,117 @@
 	<script src="assets/js/main.js"></script>
 
 	<script type="module">
-		import { getEntries, asHttpsUrl, createFeature } from "./assets/js/contentfull.js";
+		import { getEntries, asHttpsUrl, createFeature, getEntriesByContentType } from "./assets/js/contentfull.js";
 		import { hideLoader } from "./assets/js/loader.js";
 
 		const events = await getEntries('events');
-		// Eksempel: hent en bestemt entry på ID
 		insertHeaderContent(events);
-		insertUpcomingEventContent(events);
+
+		const upcomingEvents = await getEntriesByContentType('event', 'fields.sortOrder');
+
+		const styles = ['style1', 'style2'];
+		let insertionPoint = document.getElementById('page-header');
+
+		if (upcomingEvents.length === 0) {
+			insertNoUpcomingEventContent(events);
+			const noEventSection = document.getElementById('no-upcoming-event');
+			insertionPoint.insertAdjacentElement('afterend', noEventSection);
+			insertionPoint = noEventSection;
+		} else {
+			let hasUniverse = false;
+
+			upcomingEvents.forEach((event, index) => {
+				const fields = event.fields;
+				const style = styles[index % styles.length];
+
+				const section = document.createElement('section');
+				section.className = `wrapper${index % 2 !== 0 ? ' alt' : ''} spotlight ${style}`;
+
+				const inner = document.createElement('div');
+				inner.className = 'inner';
+
+				// Image
+				const imgWrapper = document.createElement('a');
+				imgWrapper.className = 'image';
+				const img = document.createElement('img');
+				img.src = asHttpsUrl(fields.image?.fields?.file?.url);
+				img.alt = '';
+				imgWrapper.appendChild(img);
+				inner.appendChild(imgWrapper);
+
+				// Content
+				const content = document.createElement('div');
+				content.className = 'content';
+
+				const h2 = document.createElement('h2');
+				h2.className = 'major';
+				h2.textContent = fields.headline;
+				content.appendChild(h2);
+
+				if (fields.description) {
+					const p = document.createElement('p');
+					p.textContent = fields.description;
+					content.appendChild(p);
+				}
+
+				// Event details
+				const details = document.createElement('div');
+				details.className = 'event-details';
+
+				const href = fields.universe
+					? `${fields.link}?buttonColor=#2c375f&buttonText=Buy tickets`
+					: fields.link;
+				if (fields.universe) hasUniverse = true;
+
+				const a = document.createElement('a');
+				a.href = href;
+				a.className = 'special';
+				a.textContent = fields.button;
+				details.appendChild(a);
+
+				if (fields.date) {
+					const pDate = document.createElement('p');
+					pDate.className = 'event';
+					pDate.innerHTML = `<i class="icon solid fa-calendar"></i> ${formatDate(fields.date)}`;
+					details.appendChild(pDate);
+				}
+
+				if (fields.location) {
+					const pLoc = document.createElement('p');
+					pLoc.className = 'event';
+					pLoc.innerHTML = `<i class="icon solid fa-map-marker-alt"></i> ${fields.location}`;
+					details.appendChild(pLoc);
+				}
+
+				if (fields.price) {
+					const pPrice = document.createElement('p');
+					pPrice.className = 'event';
+					pPrice.innerHTML = `<i class="icon solid fa-credit-card"></i> ${fields.price}`;
+					details.appendChild(pPrice);
+				}
+
+				content.appendChild(details);
+				inner.appendChild(content);
+				section.appendChild(inner);
+				insertionPoint.insertAdjacentElement('afterend', section);
+				insertionPoint = section;
+			});
+
+			if (hasUniverse) {
+				const script = document.createElement('script');
+				script.src = 'https://www.universe.com/embed2.js';
+				document.body.appendChild(script);
+			}
+		}
+
+		// Insert previous events section after the last inserted element, continuing the alternating pattern.
+		// When 0 events, no-upcoming-event occupies position 0, so previous events lands at 1 (alt).
+		const prevSection = document.getElementById('one');
+		const prevIndex = upcomingEvents.length === 0 ? 1 : upcomingEvents.length;
+		prevSection.className = `wrapper${prevIndex % 2 !== 0 ? ' alt' : ''} style3`;
+		insertionPoint.insertAdjacentElement('afterend', prevSection);
 		insertPreviousEventsContent(events);
+
 		hideLoader();
 
 		function insertHeaderContent(events) {
@@ -119,29 +196,10 @@
 				`linear-gradient(to top, rgba(44, 55, 95, 0.8), rgba(44, 55, 95, 0.8)), url("${url}")`;
 		}
 
-		function insertUpcomingEventContent(events) {
-			const upcomingEvent = events.get("WJCeJzB76Y1lhO0w4FH6D")?.fields;
-
-			if (upcomingEvent?.display) {
-				document.getElementById("upcoming-event").style.display = "block";
-				document.getElementById("upcoming-event-headline").innerHTML = upcomingEvent?.headline;
-				document.getElementById("upcoming-event-image").setAttribute("src", asHttpsUrl(upcomingEvent?.image.fields.file.url));
-				document.getElementById("upcoming-event-button").setAttribute("href", upcomingEvent?.link + "?buttonColor=#2c375f&buttonText=Buy tickets");
-				document.getElementById("upcoming-event-button").innerHTML = upcomingEvent?.button;
-				document.getElementById("upcoming-event-date").innerHTML = formatDate(upcomingEvent?.date);
-				document.getElementById("upcoming-event-location").innerHTML = upcomingEvent?.location;
-				document.getElementById("upcoming-event-price").innerHTML = upcomingEvent?.price;
-			} else {
-				document.getElementById("upcoming-event").style.display = "none";
-				insertNoUpcomingEventContent(events);
-			}
-		}
-
 		function insertNoUpcomingEventContent(events) {
 			const upcomingEvent = events.get("3mF3hQ6MmW3ddCeqSJYWKe")?.fields;
 
 			document.getElementById("no-upcoming-event").style.display = "block";
-
 			document.getElementById("no-upcoming-event-headline").innerHTML = upcomingEvent?.headline;
 			document.getElementById("no-upcoming-event-text").innerHTML = upcomingEvent?.text?.content[0]?.content[0]?.value;
 			document.getElementById("no-upcoming-event-button").innerHTML = upcomingEvent?.button;
@@ -154,7 +212,6 @@
 			const container = document.getElementById("previous-events-features");
 
 			document.getElementById("previous-events-headline").innerHTML = previousEvents?.name;
-
 
 			previousEvents?.features.forEach(event => {
 				container.appendChild(createFeature(event));
