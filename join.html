@@ -62,6 +62,13 @@
 								<div class="col-12">
 									<label for="study" id="form-study-label"></label>
 									<select name="study" id="form-study">
+										<option value="" selected disabled>Please select</option>
+									</select>
+								</div>
+									<div class="col-12">
+									<label for="team" id="form-team-label"></label>
+									<select name="team" id="form-team" required>
+										<option value="" selected disabled>Please select</option>
 									</select>
 								</div>
 								<div class="col-12">
@@ -130,6 +137,7 @@
 			document.getElementById("form-email-label").innerHTML = form?.emailLabel;
 			document.getElementById("form-email-error").innerHTML = form?.emailError;
 			document.getElementById("form-study-label").innerHTML = form?.studyLabel;
+			document.getElementById("form-team-label").innerHTML = form?.teamLabel;
 			document.getElementById("form-message-label").innerHTML = form?.messageLabel;
 			document.getElementById("form-submit").setAttribute("value", form?.submit);
 			document.getElementById("form-reset").setAttribute("value", form?.reset);
@@ -137,6 +145,11 @@
 			// Populate study options
 			form?.studyOptions.forEach(option => {
 				document.getElementById("form-study").appendChild(createOptionElement(option));
+			});
+
+			// Populate team options
+			form?.teamOptions.forEach(option => {
+				document.getElementById("form-team").appendChild(createOptionElement(option));
 			});
 		}
 
@@ -175,6 +188,7 @@
 
 			const name = document.getElementById("name").value;
 			const title = document.getElementById("form-study").value;
+			const team = document.getElementById("form-team").value;
 			const email = document.getElementById("email").value;
 			const message = document.getElementById("message").value;
 
@@ -183,6 +197,7 @@
 				email: email,
 				title: title,
 				message: message,
+				team: team
 			}).then(
 				function () {
 					$(".circle-loader").toggleClass("load-complete");
